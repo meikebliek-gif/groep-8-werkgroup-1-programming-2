@@ -1,4 +1,5 @@
 ---
+<<<<<<< Updated upstream
 title: "Template" Hoe zwaar weegt welvaart?
 author: "Studentnames and studentnumbers here" Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488
 date: "`r Sys.Date()`"
@@ -25,6 +26,9 @@ require(yaml)
 Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
 
 
+meike bliek
+Include your names, Anne Mak,Meike Bliek, Tobias Pierik, Vycho de Graaf, Nynke Latham
+Tobias Pierik
 Include the tutorial group number: 1
 
 Include your tutorial lecturer's name: Fitzgerald, J.F.
