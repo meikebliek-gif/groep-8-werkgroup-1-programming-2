@@ -30,12 +30,16 @@ require(yaml)
 Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
 
 
+<<<<<<< HEAD
 =======
 meike bliek
 Include your names, Anne Mak,Meike Bliek, Tobias Pierik, Vycho de Graaf, Nynke Latham
 Tobias Pierik
 >>>>>>> Stashed changes
 Include the tutorial group number: 1
+=======
+Include the tutorial group number: 1,8
+>>>>>>> 261c22b67f2673b22462cb5c7f71ad44aefb7a9c
 
 Include your tutorial lecturer's name: Fitzgerald, J.F.
 
