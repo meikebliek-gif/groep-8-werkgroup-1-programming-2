@@ -24,9 +24,7 @@ require(yaml)
 
 Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
 
-meike bliek
-Include your names, Anne Mak,Meike Bliek, Tobias Pierik, Vycho de Graaf, Nynke Latham
-Tobias Pierik
+
 Include the tutorial group number: 1
 
 Include your tutorial lecturer's name: Fitzgerald, J.F.
