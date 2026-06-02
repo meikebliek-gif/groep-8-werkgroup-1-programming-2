@@ -21,8 +21,8 @@ require(yaml)
 
 # Title Page
 
-Include your names, Anne Mak
-Tobias Pierik
+Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
+
 Include the tutorial group number
 
 Include your tutorial lecturer's name
@@ -30,7 +30,7 @@ Include your tutorial lecturer's name
 # Part 1 - Identify a Social Problem
 
 Use APA referencing throughout your document. [Here's a link to some explanation.](https://www.mendeley.com/guides/apa-citation-guide/)
-nynke
+
 ## 1.1 Describe the Social Problem
 
 Include the following:
