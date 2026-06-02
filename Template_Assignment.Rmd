@@ -1,5 +1,9 @@
 ---
+<<<<<<< Updated upstream
 title: "Template" Hoe zwaar weegt welvaart?
+=======
+title: ""
+>>>>>>> Stashed changes
 author: "Studentnames and studentnumbers here" Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -20,12 +24,19 @@ require(yaml)
 ```
 
 # Title Page
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 
 Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+Include the tutorial group number: 1
+=======
 Include the tutorial group number: 1,8
+>>>>>>> 261c22b67f2673b22462cb5c7f71ad44aefb7a9c
 
 Include your tutorial lecturer's name: Fitzgerald, J.F.
 
