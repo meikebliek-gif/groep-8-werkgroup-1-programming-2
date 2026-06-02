@@ -18,11 +18,17 @@ require(tidyverse)
 require(rmarkdown)
 require(yaml)
 ```
-
+Vycho de Graaf
 # Title Page
+<<<<<<< HEAD
 
 Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
 
+=======
+meike bliek
+Include your names, Anne Mak
+Tobias Pierik
+>>>>>>> 086054fd715ab18f4746963dc92468dd00b5daff
 Include the tutorial group number
 
 Include your tutorial lecturer's name
