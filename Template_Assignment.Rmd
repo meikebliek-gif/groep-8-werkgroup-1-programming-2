@@ -1,6 +1,6 @@
 ---
 title: "Template"
-author: "Studentnames and studentnumbers here"
+author: "Studentnames and studentnumbers here" Tobias Pierik: 2898032, Meike Bliek: 2892575, Vyche de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
