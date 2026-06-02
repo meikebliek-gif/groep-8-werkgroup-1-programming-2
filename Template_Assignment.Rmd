@@ -21,7 +21,7 @@ require(yaml)
 
 # Title Page
 
-Include your names
+Include your names, Anne Mak
 
 Include the tutorial group number
 
