@@ -23,9 +23,9 @@ Vycho de Graaf
 
 Include your names, Anne Mak
 Tobias Pierik
-Include the tutorial group number
+Include the tutorial group number: 1
 
-Include your tutorial lecturer's name
+Include your tutorial lecturer's name: Fitzgerald, J.F.
 
 # Part 1 - Identify a Social Problem
 
