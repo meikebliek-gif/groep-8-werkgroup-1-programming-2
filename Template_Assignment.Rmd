@@ -32,9 +32,6 @@ Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike
 
 <<<<<<< HEAD
 =======
-meike bliek
-Include your names, Anne Mak,Meike Bliek, Tobias Pierik, Vycho de Graaf, Nynke Latham
-Tobias Pierik
 >>>>>>> Stashed changes
 Include the tutorial group number: 1
 =======
