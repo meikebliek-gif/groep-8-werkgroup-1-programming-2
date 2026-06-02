@@ -49,7 +49,7 @@ In welke mate welvaart overgewicht beinvloed binnen Europa.
 Include the following:
 
 -   Why is this relevant?
-
+Dit is een relevant onderwerp omdat overgewicht zorgt voor gezondheidsproblemen. Door onderzoek te doen naar de correlatie tussen rijkdom en overgewicht, kunnen we beter begrijpen hoe inkomen de gezondheid in een land bepaald. Hierdoor kunnen we maatregelen nemen om overgewicht te voorkomen.
 -   ...
 
 # Part 2 - Data Sourcing
