@@ -24,14 +24,12 @@ Vycho de Graaf
 
 Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
 
-=======
 meike bliek
 Include your names, Anne Mak
 Tobias Pierik
->>>>>>> 086054fd715ab18f4746963dc92468dd00b5daff
-Include the tutorial group number
+Include the tutorial group number: 1
 
-Include your tutorial lecturer's name
+Include your tutorial lecturer's name: Fitzgerald, J.F.
 
 # Part 1 - Identify a Social Problem
 
