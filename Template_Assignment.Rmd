@@ -69,7 +69,13 @@ Preferably from a URL, but if not, make sure to download the data and store it i
 
 library(readxl)
 earn_ses_annual <- read_excel("data/earn_ses_annual.xlsx")
+earn_ses_annual$data2014 <- earn_ses_annual$...8
+earn_ses_annual$...8 <- NULL
 
+
+earn_clean <- earn_ses_annual[-c(1:11),]
+
+write.csv(earn_clean, "data/clean_earn_ses.csv")
 ```
 
 
