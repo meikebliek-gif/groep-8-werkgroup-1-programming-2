@@ -65,18 +65,24 @@ View(overgewichtLanden)
 
 
 
-library(readxl)
-earn_ses_annual <- read_excel("data/earn_ses_annual.xlsx")
+
+library(readr)
+
+clean_earn_ses <- read_csv("data/clean_earn_ses.csv")
+# data zien
+View(clean_earn_ses)
+# kopjes namen veranderen en kopjes verwijderen  
 earn_ses_annual$data2014 <- earn_ses_annual$...8
 earn_ses_annual$...8 <- NULL
 earn_ses_annual$data2022 <- earn_ses_annual$...12
 earn_ses_annual$...12 <- NULL
 
-View(earn_ses_annual)
+View(clean_earn_ses.csv)
 
 earn_clean <- earn_ses_annual[-c(1:11),]
 
 write.csv(earn_clean, "data/clean_earn_ses.csv")
+
 ```
 
 
