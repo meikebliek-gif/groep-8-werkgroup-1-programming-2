@@ -61,9 +61,9 @@ https://ec.europa.eu/eurostat/databrowser/view/ilc_hch10/default/table?lang=en&c
 library(readr)
 overgewichtLanden <- read_csv("data/overgewichtLanden.csv")
 View(overgewichtLanden)
-```
 
-```{r}
+
+
 
 library(readxl)
 earn_ses_annual <- read_excel("data/earn_ses_annual.xlsx")
