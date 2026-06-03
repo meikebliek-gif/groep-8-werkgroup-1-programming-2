@@ -12,9 +12,9 @@ output: pdf_document
 # Set-up your environment
 
 ```{r package_install, include=FALSE}
-install.packages("tidyverse")
-install.packages("yaml")
-install.packages("rmarkdown")
+#install.packages("tidyverse")
+#install.packages("yaml")
+#install.packages("rmarkdown")
 ```
 
 ```{r packages}
@@ -64,6 +64,14 @@ write.csv(data1, "data/overgewichtLanden.csv")
 ```
 
 Preferably from a URL, but if not, make sure to download the data and store it in a shared location that you can load the data in from. Do not store the data in a folder you include in the Github repository!
+
+```{r}
+
+library(readxl)
+earn_ses_annual <- read_excel("data/earn_ses_annual.xlsx")
+
+```
+
 
 ```{r loading_data}
 dataset <- midwest
