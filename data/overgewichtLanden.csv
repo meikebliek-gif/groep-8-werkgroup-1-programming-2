@@ -1,0 +1,60 @@
+"","Data extracted on 03/06/2026 14:05:17 from [ESTAT]","...2","...3","...4","...5","...6","...7"
+"1","Dataset:","Person distribution by body mass index, educational attainment level, sex and age [ilc_hch10$defaultview]",NA,NA,NA,NA,NA
+"2","Last updated:","06/05/2026 23:00",NA,NA,NA,NA,NA
+"3",NA,NA,NA,NA,NA,NA,NA
+"4","Time frequency",NA,"Annual",NA,NA,NA,NA
+"5","Body Mass Index",NA,"Overweight",NA,NA,NA,NA
+"6","International Standard Classification of Education (ISCED 2011)",NA,"All ISCED 2011 levels",NA,NA,NA,NA
+"7","Sex",NA,"Total",NA,NA,NA,NA
+"8","Age class",NA,"16 years or over",NA,NA,NA,NA
+"9","Unit of measure",NA,"Percentage",NA,NA,NA,NA
+"10",NA,NA,NA,NA,NA,NA,NA
+"11","TIME","2017",NA,"2022",NA,"2025",NA
+"12","GEO (Labels)",NA,NA,NA,NA,NA,NA
+"13","European Union - 27 countries (from 2020)","51.2",NA,"50.5","e","51.0",NA
+"14","Euro area – 21 countries (from 2026)",":",NA,":",NA,"49.4",NA
+"15","Euro area – 20 countries (2023-2025)","49.4",NA,"48.6","e","49.2",NA
+"16","Belgium","47.7",NA,"48.0",NA,"50.3",NA
+"17","Bulgaria","58.3",NA,"52.8",NA,"56.1",NA
+"18","Czechia","62.0","u","55.4",NA,"59.7","u"
+"19","Denmark","53.2",NA,"53.2",NA,"53.9",NA
+"20","Germany","55.8",NA,":","u","53.2",NA
+"21","Estonia","55.7","u","56.4",NA,"57.2",NA
+"22","Ireland","55.7","u","52.2","u","57.0","u"
+"23","Greece","54.1",NA,"54.2",NA,"54.4",NA
+"24","Spain","51.0",NA,"50.3",NA,"50.5",NA
+"25","France","44.7",NA,"45.4",NA,"47.2",NA
+"26","Croatia","60.0",NA,"57.2",NA,"58.4",NA
+"27","Italy","39.8",NA,"41.3",NA,"37.7",NA
+"28","Cyprus","51.7",NA,"47.8",NA,"51.2",NA
+"29","Latvia","56.3",NA,"59.2",NA,"58.4",NA
+"30","Lithuania","55.1",NA,"58.5","u","60.0","pu"
+"31","Luxembourg","49.0",NA,"49.4",NA,"49.1",NA
+"32","Hungary","55.5",NA,"57.5",NA,"55.6",NA
+"33","Malta","61.8",NA,"62.0",NA,"61.8",NA
+"34","Netherlands","46.1",NA,"46.8",NA,"48.2",NA
+"35","Austria","49.1",NA,"51.8",NA,"52.1",NA
+"36","Poland","55.3",NA,"57.8","u","58.1","u"
+"37","Portugal","52.5",NA,"52.3",NA,"54.4",NA
+"38","Romania","61.8",NA,"58.9",NA,"61.2",NA
+"39","Slovenia","52.1",NA,"54.1",NA,"56.4",NA
+"40","Slovakia","53.7",NA,"57.5",NA,"56.9",NA
+"41","Finland","60.3",NA,"58.5",NA,"60.6",NA
+"42","Sweden","56.6",NA,"52.1",NA,"53.1",NA
+"43","Iceland","58.7",NA,"60.3",NA,":",NA
+"44","Norway","49.6",NA,"51.6",NA,"53.0",NA
+"45","Switzerland","42.4",NA,"44.4","u",":",NA
+"46","United Kingdom","55.2","u",":",NA,":",NA
+"47","Bosnia and Herzegovina",":",NA,"59.5",NA,":",NA
+"48","Montenegro","51.8",NA,"47.0",NA,":",NA
+"49","North Macedonia","54.9",NA,"61.3",NA,":",NA
+"50","Albania",":",NA,"56.5",NA,":",NA
+"51","Serbia","48.8",NA,"51.6",NA,"52.2",NA
+"52","Türkiye",":",NA,"57.1",NA,"58.3",NA
+"53",NA,NA,NA,NA,NA,NA,NA
+"54","Special value",NA,NA,NA,NA,NA,NA
+"55",":","not available",NA,NA,NA,NA,NA
+"56","Observation flags:",NA,NA,NA,NA,NA,NA
+"57","pu","provisional, low reliability",NA,NA,NA,NA,NA
+"58","e","estimated",NA,NA,NA,NA,NA
+"59","u","low reliability",NA,NA,NA,NA,NA
