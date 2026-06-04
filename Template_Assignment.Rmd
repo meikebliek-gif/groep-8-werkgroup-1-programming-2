@@ -98,6 +98,9 @@ inkomen_landen_europa$...11 <-NULL
 
 #rijen weghalen
 inkomen_landen_europa <- inkomen_landen_europa[-c(47:49),]
+
+#rijen weghalen
+overgewichtLanden <-overgewichtLanden [-c(1:10),]
 ```
 
 
