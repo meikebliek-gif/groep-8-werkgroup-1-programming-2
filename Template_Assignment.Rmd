@@ -92,6 +92,12 @@ inkomen_landen_europa$...3 <-NULL
 inkomen_landen_europa$...4 <-NULL
 inkomen_landen_europa$...6 <-NULL
 inkomen_landen_europa$...8 <-NULL
+inkomen_landen_europa$...9 <-NULL
+inkomen_landen_europa$...10 <-NULL
+inkomen_landen_europa$...11 <-NULL
+
+
+
 ```
 
 
