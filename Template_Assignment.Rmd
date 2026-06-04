@@ -103,6 +103,21 @@ inkomen_landen_europa <- inkomen_landen_europa[-c(47:49),]
 overgewichtLanden <-overgewichtLanden [-c(1:10),]
 overgewichtLanden <-overgewichtLanden [-c(43:49),]
 
+#namen overgewicht data veranderen 
+overgewichtLanden$data2017 <- overgewichtLanden$...3
+overgewichtLanden$...3 <-NULL
+overgewichtLanden$data2022 <- overgewichtLanden$...5
+overgewichtLanden$...5 <-NULL
+overgewichtLanden$data2025 <- overgewichtLanden$...7
+overgewichtLanden$...7 <-NULL
+
+#colommen weghalen
+overgewichtLanden$...8 <-NULL
+overgewichtLanden$...6 <-NULL
+overgewichtLanden$...4 <-NULL
+
+
+
 ```
 
 
