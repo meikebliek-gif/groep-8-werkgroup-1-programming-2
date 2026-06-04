@@ -116,6 +116,16 @@ overgewichtLanden$...8 <-NULL
 overgewichtLanden$...6 <-NULL
 overgewichtLanden$...4 <-NULL
 
+#rij weghalen
+overgewichtLanden <-overgewichtLanden [-c(1),]
+inkomen_landen_europa <- inkomen_landen_europa[-c(1),]
+
+#colommen hernoemen
+overgewichtLanden$regio <- overgewichtLanden$`Data extracted on 03/06/2026 14:05:17 from [ESTAT]`
+overgewichtLanden$`Data extracted on 03/06/2026 14:05:17 from [ESTAT]` <-NULL
+inkomen_landen_europa$regio <- inkomen_landen_europa$`Data extracted on 03/06/2026 14:26:04 from [ESTAT]`
+inkomen_landen_europa$`Data extracted on 03/06/2026 14:26:04 from [ESTAT]`<-NULL
+
 
 
 ```
