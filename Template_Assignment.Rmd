@@ -82,7 +82,7 @@ inkomen_landen_europa <- read_csv("data/clean_earn_ses.csv")
 # data zien
 View(inkomen_landen_europa)
 
-View(inkomen_landen_europa)
+
 
 ```
 
