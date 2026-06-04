@@ -102,7 +102,9 @@ inkomen_landen_europa$...11 <-NULL
 
 
 ```{r loading_data}
+library(tidyverse)
 dataset <- midwest
+filter(dataset, state == "IL")
 ```
 
 midwest is an example dataset included in the tidyverse package
