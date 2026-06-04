@@ -80,9 +80,9 @@ write.csv(earn_clean, "data/clean_earn_ses.csv")
 
 inkomen_landen_europa <- read_csv("data/clean_earn_ses.csv")
 # data zien
-View(clean_earn_ses)
+View(inkomen_landen_europa)
 
-View(clean_earn_ses.csv)
+View(inkomen_landen_europa)
 
 ```
 
