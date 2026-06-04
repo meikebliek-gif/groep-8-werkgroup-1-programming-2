@@ -86,6 +86,8 @@ inkomen_landen_europa$data2010 <- inkomen_landen_europa$...7
 inkomen_landen_europa$...7 <-NULL
 inkomen_landen_europa$data2006 <- inkomen_landen_europa$...5
 inkomen_landen_europa$...5 <-NULL
+inkomen_landen_europa$data2002 <- inkomen_landen_europa$...3
+inkomen_landen_europa$...3 <-NULL
 
 ```
 
