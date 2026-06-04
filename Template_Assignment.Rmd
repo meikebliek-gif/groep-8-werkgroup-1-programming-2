@@ -101,6 +101,8 @@ inkomen_landen_europa <- inkomen_landen_europa[-c(47:49),]
 
 #rijen weghalen
 overgewichtLanden <-overgewichtLanden [-c(1:10),]
+overgewichtLanden <-overgewichtLanden [-c(43:49),]
+
 ```
 
 
