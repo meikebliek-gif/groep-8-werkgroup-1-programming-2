@@ -60,7 +60,7 @@ https://ec.europa.eu/eurostat/databrowser/view/ilc_hch10/default/table?lang=en&c
 ```{r}
 library(readr)
 overgewichtLanden <- read_csv("data/overgewichtLanden.csv")
-#View(overgewichtLanden)
+View(overgewichtLanden)
 
 
 library(readxl)
@@ -73,9 +73,6 @@ earn_ses_annual$data2022 <- earn_ses_annual$...12
 earn_ses_annual$...12 <- NULL
 earn_ses_annual$data2018 <- earn_ses_annual$...10
 earn_ses_annual$...10 <-NULL
-earn_ses_annual$data2010 <- earn_ses_annual$...7
-earn_ses_annual$...7 <-NULL
-
 
 # de eerste 11 rijen weghalen earn clean is die zonder de rijen
 earn_clean <- earn_ses_annual[-c(1:11),]
@@ -84,8 +81,11 @@ write.csv(earn_clean, "data/clean_earn_ses.csv")
 
 inkomen_landen_europa <- read_csv("data/clean_earn_ses.csv")
 # data zien
-#View(inkomen_landen_europa)
-
+View(inkomen_landen_europa)
+inkomen_landen_europa$data2010 <- inkomen_landen_europa$...7
+inkomen_landen_europa$...7 <-NULL
+inkomen_landen_europa$data2006 <- inkomen_landen_europa$...5
+inkomen_landen_europa$...5 <-NULL
 
 ```
 
