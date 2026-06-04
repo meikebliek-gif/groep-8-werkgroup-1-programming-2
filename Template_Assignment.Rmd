@@ -71,6 +71,9 @@ earn_ses_annual$data2014 <- earn_ses_annual$...8
 earn_ses_annual$...8 <- NULL
 earn_ses_annual$data2022 <- earn_ses_annual$...12
 earn_ses_annual$...12 <- NULL
+earn_ses_annual$data2018 <- earn_ses_annual$...10
+earn_ses_annual$...10 <-NULL
+
 
 
 # de eerste 11 rijen weghalen earn clean is die zonder de rijen
