@@ -60,7 +60,7 @@ https://ec.europa.eu/eurostat/databrowser/view/ilc_hch10/default/table?lang=en&c
 ```{r}
 library(readr)
 overgewichtLanden <- read_csv("data/overgewichtLanden.csv")
-#View(overgewichtLanden)
+View(overgewichtLanden)
 
 
 library(readxl)
@@ -81,7 +81,7 @@ write.csv(earn_clean, "data/clean_earn_ses.csv")
 
 inkomen_landen_europa <- read_csv("data/clean_earn_ses.csv")
 # data zien
-#View(inkomen_landen_europa)
+View(inkomen_landen_europa)
 inkomen_landen_europa$data2010 <- inkomen_landen_europa$...7
 inkomen_landen_europa$...7 <-NULL
 inkomen_landen_europa$data2006 <- inkomen_landen_europa$...5
@@ -130,11 +130,6 @@ inkomen_landen_europa$`Data extracted on 03/06/2026 14:26:04 from [ESTAT]`<-NULL
 inkomen_landen_europa <- inkomen_landen_europa[-c(1:8),]
 overgewichtLanden <-overgewichtLanden [-c(1:4),]
 
-#variabelen unieke namen geven
-overgewichtLanden$overgewicht2017 <- overgewichtLanden$data2017
-overgewichtLanden$data2017 <-NULL
-
-
 # datasets samenvoegen op regio
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 require(ggplot2)
@@ -142,8 +137,8 @@ require(ggplot2)
 ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
   geom_point() +
   geom_text(
-   label = combined$regio,
-   nudge_x = 0.25, nudge_y = 0.25,
+    label = combined$regio,
+    nudge_x = 1.0, nudge_y = 1.0,
     check_overlap = T
   ) +
   labs(
@@ -151,9 +146,17 @@ ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
     y = "Overgewicht 2022",
     title = "Inkomen vs overgewicht per Europees land"
   )
+View(combined)
+library(tidyverse)
+library(data.table)
+filter(combined, combined$data2022.y == ":")
 
+combined <- replace(combined, combined == ":", NA)
 
 ```
+
+
+
 
 
 ```{r loading_data}
