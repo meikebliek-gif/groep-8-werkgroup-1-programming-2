@@ -126,7 +126,22 @@ overgewichtLanden$`Data extracted on 03/06/2026 14:05:17 from [ESTAT]` <-NULL
 inkomen_landen_europa$regio <- inkomen_landen_europa$`Data extracted on 03/06/2026 14:26:04 from [ESTAT]`
 inkomen_landen_europa$`Data extracted on 03/06/2026 14:26:04 from [ESTAT]`<-NULL
 
-
+# datasets samenvoegen op regio
+combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
+require(ggplot2)
+# scatterplot
+ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
+  geom_point() +
+  geom_text(
+    label = combined$regio,
+    nudge_x = 0.25, nudge_y = 0.25,
+    check_overlap = T
+  ) +
+  labs(
+    x = "Inkomen 2022",
+    y = "Overgewicht 2022",
+    title = "Inkomen vs overgewicht per Europees land"
+  )
 
 ```
 
