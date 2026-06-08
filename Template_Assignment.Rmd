@@ -143,6 +143,9 @@ ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
     title = "Inkomen vs overgewicht per Europees land"
   )
 
+#Rijen weghalen
+inkomen_landen_europa <- inkomen_landen_europa[-c(1:8),]
+overgewichtLanden <-overgewichtLanden [-c(1:4),]
 ```
 
 
