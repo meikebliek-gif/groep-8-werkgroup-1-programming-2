@@ -133,6 +133,10 @@ overgewichtLanden <-overgewichtLanden [-c(1:4),]
 #variabelen unieke namen geven
 overgewichtLanden$overgewicht2017 <- overgewichtLanden$data2017
 overgewichtLanden$data2017 <-NULL
+overgewichtLanden$overgewicht2022 <- overgewichtLanden$data2022
+overgewichtLanden$data2022<-NULL
+overgewichtLanden$overgewicht2025 <- overgewichtLanden$data2025
+overgewichtLanden$data2025<-NULL
 
 
 
