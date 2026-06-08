@@ -60,7 +60,7 @@ https://ec.europa.eu/eurostat/databrowser/view/ilc_hch10/default/table?lang=en&c
 ```{r}
 library(readr)
 overgewichtLanden <- read_csv("data/overgewichtLanden.csv")
-View(overgewichtLanden)
+#View(overgewichtLanden)
 
 
 library(readxl)
@@ -81,7 +81,7 @@ write.csv(earn_clean, "data/clean_earn_ses.csv")
 
 inkomen_landen_europa <- read_csv("data/clean_earn_ses.csv")
 # data zien
-View(inkomen_landen_europa)
+#View(inkomen_landen_europa)
 inkomen_landen_europa$data2010 <- inkomen_landen_europa$...7
 inkomen_landen_europa$...7 <-NULL
 inkomen_landen_europa$data2006 <- inkomen_landen_europa$...5
