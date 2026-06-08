@@ -130,6 +130,11 @@ inkomen_landen_europa$`Data extracted on 03/06/2026 14:26:04 from [ESTAT]`<-NULL
 inkomen_landen_europa <- inkomen_landen_europa[-c(1:8),]
 overgewichtLanden <-overgewichtLanden [-c(1:4),]
 
+#variabelen unieke namen geven
+overgewichtLanden$overgewicht2017 <- overgewichtLanden$data2017
+overgewichtLanden$data2017 <-NULL
+
+
 # datasets samenvoegen op regio
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 require(ggplot2)
@@ -137,8 +142,8 @@ require(ggplot2)
 ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
   geom_point() +
   geom_text(
-    label = combined$regio,
-    nudge_x = 1.0, nudge_y = 1.0,
+   label = combined$regio,
+   nudge_x = 0.25, nudge_y = 0.25,
     check_overlap = T
   ) +
   labs(
