@@ -140,6 +140,8 @@ filter(dataset, state == "IL")
 midwest is an example dataset included in the tidyverse package
 
 ## 2.2 Provide a short summary of the dataset(s)
+De eerste dataset toont de ontwikkeling van het inkomen van de bevolking in verschillende Europese landen tussen 2002 en 2022. Over het algemeen is het inkomen in de meeste landen gestegen gedurende deze periode, hoewel de groei niet overal even sterk was. Daarnaast zijn er duidelijke verschillen zichtbaar tussen landen, wat wijst op uiteenlopende economische ontwikkelingen en welvaartsniveaus binnen Europa.
+De tweede dataset geeft informatie over het percentage van de bevolking met overgewicht in verschillende Europese landen in 2017, 2020 en 2025. De gegevens laten zien dat overgewicht in veel landen een veelvoorkomend gezondheidsprobleem is. In meerdere landen is een stijgende trend zichtbaar, wat erop wijst dat het aandeel mensen met overgewicht in de loop der jaren verder toeneemt. Hierdoor blijft overgewicht een belangrijk aandachtspunt voor de volksgezondheid in Europa.
 
 ```{r}
 head(dataset)
