@@ -135,6 +135,21 @@ overgewichtLanden$overgewicht2017 <- overgewichtLanden$data2017
 overgewichtLanden$data2017 <-NULL
 
 
+
+
+inkomen_landen_europa$inkomen2002 <- inkomen_landen_europa$data2002
+inkomen_landen_europa$data2002 <-NULL
+inkomen_landen_europa$inkomen2006 <- inkomen_landen_europa$data2006
+inkomen_landen_europa$data2006 <-NULL
+inkomen_landen_europa$inkomen2010 <- inkomen_landen_europa$data2010
+inkomen_landen_europa$data2010 <-NULL
+inkomen_landen_europa$inkomen2014 <- inkomen_landen_europa$data2014
+inkomen_landen_europa$data2014 <-NULL
+inkomen_landen_europa$inkomen2018 <- inkomen_landen_europa$data2018
+inkomen_landen_europa$data2018 <-NULL
+inkomen_landen_europa$inkomen2022 <- inkomen_landen_europa$data2022
+inkomen_landen_europa$data2022 <-NULL
+
 # datasets samenvoegen op regio
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 require(ggplot2)
