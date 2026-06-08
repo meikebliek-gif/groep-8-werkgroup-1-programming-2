@@ -151,15 +151,6 @@ ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
 ```
 
 
-```{r}
-library(tidyverse)
-library(data.table)
-filter(combined, combined$data2022.y == ":")
-
-replace()
-```
-
-
 ```{r loading_data}
 library(tidyverse)
 dataset <- midwest
