@@ -138,7 +138,7 @@ ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
   geom_point() +
   geom_text(
     label = combined$regio,
-    nudge_x = 0.25, nudge_y = 0.25,
+    nudge_x = 1.0, nudge_y = 1.0,
     check_overlap = T
   ) +
   labs(
