@@ -154,8 +154,11 @@ inkomen_landen_europa$data2018 <-NULL
 inkomen_landen_europa$inkomen2022 <- inkomen_landen_europa$data2022
 inkomen_landen_europa$data2022 <-NULL
 
+#landen met NA filteren
 overgewichtLanden <- overgewichtLanden %>% filter(regio != "United Kingdom")
 inkomen_landen_europa <- inkomen_landen_europa %>% filter(regio != "United Kingdom")
+overgewichtLanden <- overgewichtLanden %>% filter(regio != "Montenegro")
+inkomen_landen_europa <- inkomen_landen_europa %>% filter(regio != "Montenegro")
 
 # datasets samenvoegen op regio
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
@@ -181,7 +184,10 @@ library(data.table)
 filter(combined, combined$overgewicht2022 == ":")
 
 combined <- replace(combined, combined == ":", NA)
-
+#grafiek verbreden
+png("combined.png", width = 1500, height = 600)
+plot(combined$inkomen2022, combined$overgewicht2022)
+dev.off()
 ```
 
 
