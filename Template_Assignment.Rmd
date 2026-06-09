@@ -154,6 +154,12 @@ inkomen_landen_europa$data2018 <-NULL
 inkomen_landen_europa$inkomen2022 <- inkomen_landen_europa$data2022
 inkomen_landen_europa$data2022 <-NULL
 
+#landen met NA filteren
+overgewichtLanden <- overgewichtLanden %>% filter(regio != "United Kingdom")
+inkomen_landen_europa <- inkomen_landen_europa %>% filter(regio != "United Kingdom")
+overgewichtLanden <- overgewichtLanden %>% filter(regio != "Montenegro")
+inkomen_landen_europa <- inkomen_landen_europa %>% filter(regio != "Montenegro")
+
 # datasets samenvoegen op regio
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 require(ggplot2)
@@ -169,7 +175,8 @@ ggplot(combined, aes(x = inkomen2022, y = overgewicht2022)) +
     x = "Inkomen 2022",
     y = "Overgewicht 2022",
     title = "Inkomen vs overgewicht per Europees land"
-  )
+  ) +
+  theme(axis.text.x = element_text(angle = 45))
 View(combined)
 library(tidyverse)
 library(data.table)
