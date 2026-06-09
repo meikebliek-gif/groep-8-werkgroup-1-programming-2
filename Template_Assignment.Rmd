@@ -161,7 +161,7 @@ inkomen_landen_europa <- inkomen_landen_europa %>% filter(regio != "United Kingd
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 require(ggplot2)
 # scatterplot
-ggplot(combined, aes(x = inkomen2022, y = overgewicht2022)) +
+ggplot(combined, aes(x = as.numeric(inkomen2022), y = as.numeric(overgewicht2022))) +
   geom_point() +
   geom_text(
     label = combined$regio,
