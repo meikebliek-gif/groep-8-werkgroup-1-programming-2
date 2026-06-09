@@ -162,6 +162,7 @@ inkomen_landen_europa <- inkomen_landen_europa %>% filter(regio != "Montenegro")
 
 # datasets samenvoegen op regio
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
+require(tidyverse)
 require(ggplot2)
 # scatterplot
 ggplot(combined, aes(x = as.numeric(inkomen2022), y = as.numeric(overgewicht2022))) +
