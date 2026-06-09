@@ -172,7 +172,8 @@ ggplot(combined, aes(x = inkomen2022, y = overgewicht2022)) +
     x = "Inkomen 2022",
     y = "Overgewicht 2022",
     title = "Inkomen vs overgewicht per Europees land"
-  )
+  ) +
+  theme(axis.text.x = element_text(angle = 45))
 View(combined)
 library(tidyverse)
 library(data.table)
