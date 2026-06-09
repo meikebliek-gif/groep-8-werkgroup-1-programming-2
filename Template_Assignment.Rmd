@@ -158,7 +158,7 @@ inkomen_landen_europa$data2022 <-NULL
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 require(ggplot2)
 # scatterplot
-ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
+ggplot(combined, aes(x = overgewicht2022, y = inkomen2022)) +
   geom_point() +
   geom_text(
     label = combined$regio,
@@ -173,7 +173,8 @@ ggplot(combined, aes(x = data2022.x, y = data2022.y)) +
 View(combined)
 library(tidyverse)
 library(data.table)
-filter(combined, combined$data2022.y == ":")
+
+filter(combined, combined$overgewicht2022 == ":")
 
 combined <- replace(combined, combined == ":", NA)
 
