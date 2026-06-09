@@ -60,7 +60,7 @@ https://ec.europa.eu/eurostat/databrowser/view/ilc_hch10/default/table?lang=en&c
 ```{r}
 library(readr)
 overgewichtLanden <- read_csv("data/overgewichtLanden.csv")
-View(overgewichtLanden)
+#View(overgewichtLanden)
 
 
 library(readxl)
@@ -178,7 +178,7 @@ ggplot(combined, aes(x = as.numeric(inkomen2022), y = as.numeric(overgewicht2022
     title = "Inkomen vs overgewicht per Europees land"
   ) +
   theme(axis.text.x = element_text(angle = 45))
-View(combined)
+#View(combined)
 library(tidyverse)
 library(data.table)
 
@@ -191,6 +191,65 @@ plot(combined$inkomen2022, combined$overgewicht2022)
 dev.off()
 ```
 
+```{r}
+install.packages("viridis")
+library(viridis)
+library(hrbrthemes)
+combined <- combined %>%
+  mutate(
+    inkomen2022 = as.numeric(inkomen2022),
+    groep = case_when(
+      inkomen2022 < 20000              ~ "Arm",
+      inkomen2022 >= 20000 & inkomen2022 < 60000 ~ "Midden",
+      inkomen2022 >= 60000             ~ "Rijk"
+    )
+  )
+
+library(tidyverse)
+
+boxplot_long <- combined %>%
+  select(regio, groep, overgewicht2017, overgewicht2022, overgewicht2025) %>%
+  pivot_longer(
+    cols = c(overgewicht2017, overgewicht2022, overgewicht2025),
+    names_to = "jaar",
+    values_to = "overgewicht"
+  ) %>%
+  mutate(
+    overgewicht = as.numeric(overgewicht),
+    jaar = recode(jaar,
+      "overgewicht2017" = "2017",
+      "overgewicht2022" = "2022",
+      "overgewicht2025" = "2025"
+    )
+  )
+
+# Boxplot
+boxplot_long %>%
+  ggplot(aes(x = subgroep, y = overgewicht, fill = groep)) +
+    geom_boxplot() +
+    scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
+    theme_ipsum() +
+    theme(
+      legend.position = "none",
+      plot.title = element_text(size = 11)
+    ) +
+    ggtitle("Overgewicht per inkomensgroep") +
+    xlab("")
+
+# Violin
+boxplot_long %>%
+  ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
+    geom_violin() +
+    scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
+    theme_ipsum() +
+    theme(
+      legend.position = "none",
+      plot.title = element_text(size = 11)
+    ) +
+    ggtitle("Overgewicht per inkomensgroep violin") +
+    xlab("")
+
+```
 
 
 
