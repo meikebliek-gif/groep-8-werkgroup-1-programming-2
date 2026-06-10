@@ -225,7 +225,7 @@ boxplot_long <- combined %>%
 
 # Boxplot
 boxplot_long %>%
-  ggplot(aes(x = subgroep, y = overgewicht, fill = groep)) +
+  ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
     geom_boxplot() +
     scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
     theme_ipsum() +
@@ -233,8 +233,10 @@ boxplot_long %>%
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
-    ggtitle("Overgewicht per inkomensgroep") +
-    xlab("")
+    ggtitle("BMI per inkomensgroep, opgesplitst per jaar") +
+    xlab("") + 
+    ylab("BMI")
+ 
 
 # Violin
 boxplot_long %>%
