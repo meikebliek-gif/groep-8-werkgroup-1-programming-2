@@ -190,24 +190,23 @@ png("combined.png", width = 1500, height = 600)
 plot(combined$inkomen2022, combined$overgewicht2022)
 dev.off()
 ```
-```{r}
-# 1. Pakketten laden
-install.packages("viridis")   # alleen de eerste keer nodig
-library(viridis)
-library(tidyverse)            # bevat ggplot2, dplyr, tidyr
 
-# 2. Inkomensgroep aanmaken in 'combined'
+```{r}
+install.packages("viridis")
+library(viridis)
+library(hrbrthemes)
 combined <- combined %>%
   mutate(
     inkomen2022 = as.numeric(inkomen2022),
     groep = case_when(
-      inkomen2022 < 20000                         ~ "Arm",
-      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Midden",
-      inkomen2022 >= 60000                        ~ "Rijk"
+      inkomen2022 < 20000              ~ "Arm",
+      inkomen2022 >= 20000 & inkomen2022 < 60000 ~ "Midden",
+      inkomen2022 >= 60000             ~ "Rijk"
     )
   )
 
-# 3. Data van breed naar lang omzetten
+library(tidyverse)
+
 boxplot_long <- combined %>%
   select(regio, groep, overgewicht2017, overgewicht2022, overgewicht2025) %>%
   pivot_longer(
@@ -224,27 +223,70 @@ boxplot_long <- combined %>%
     )
   )
 
-# 4. De boxplot
+# Boxplot
 boxplot_long %>%
-  filter(!is.na(groep)) %>%
-  mutate(groep = factor(groep, levels = c("Arm", "Midden", "Rijk"))) %>%
   ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
     geom_boxplot() +
-    facet_wrap(~jaar) +
     scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
-    theme_minimal() +
+    theme_ipsum() +
     theme(
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
     ggtitle("BMI per inkomensgroep, opgesplitst per jaar") +
     xlab("") + 
-    ylab("BMI") 
+    ylab("BMI")
  
+
+# Violin
+boxplot_long %>%
+  ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
+    geom_violin() +
+    scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
+    theme_ipsum() +
+    theme(
+      legend.position = "none",
+      plot.title = element_text(size = 11)
+    ) +
+    ggtitle("Overgewicht per inkomensgroep violin") +
+    xlab("")
+
 ```
 
 
+```{r}
+#werken aan nieuwe grafiek
+# Library
+library(cartography)
+library(sp)
 
+# Upload data attached with the package.
+data(nuts2006)
+
+# Now we have a geospatial object called nuts2.spdf containing the shape of european regions. We can plot it with the plot function.
+# summary(nuts2.spdf)
+
+# We also have a dataframe with information concerning every region.
+# head(nuts2.df)
+# Both object have a first column "id" that makes the link between them.
+
+# Plot Europe
+plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
+plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
+plot(nuts0.spdf, col = "#D1914D", border = "grey80",  add = TRUE)
+
+# Add circles proportional to the total population
+propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df,
+    var = "pop2008", symbols = "circle", col = "#920000",
+    legend.pos = "right", legend.title.txt = "Total\npopulation (2008)",
+    legend.style = "c")
+
+# Add titles, legend...
+layoutLayer(title = "Countries Population in Europe",
+    author = "cartography", sources = "Eurostat, 2008",
+    scale = NULL, south = TRUE)
+
+```
 
 
 ```{r loading_data}
