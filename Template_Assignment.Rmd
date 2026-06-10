@@ -190,6 +190,7 @@ png("combined.png", width = 1500, height = 600)
 plot(combined$inkomen2022, combined$overgewicht2022)
 dev.off()
 ```
+
 ```{r}
 library(tidyverse)
 library(viridis)
