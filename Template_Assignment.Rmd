@@ -284,6 +284,43 @@ layoutLayer(title = "Countries Population in Europe",
     author = "cartography", sources = "Eurostat, 2008",
     scale = NULL, south = TRUE)
 
+
+```
+```{r}
+library(cartography)
+library(sp)
+library(dplyr)
+
+# Cartography data laden
+data(nuts2006)
+
+# Zorg dat de landnamen overeenkomen
+kaartdata <- nuts0.df %>%
+  left_join(combined, by = c("id" = "regio"))
+
+# Variabele numeriek maken
+kaartdata$overgewicht2022 <- as.numeric(kaartdata$overgewicht2022)
+
+# Kaart tekenen
+plot(nuts0.spdf,
+     border = "grey70",
+     col = "white")
+
+choroLayer(
+  spdf = nuts0.spdf,
+  df = kaartdata,
+  var = "overgewicht2022",
+  col = carto.pal(pal1 = "orange.pal"),
+  border = "grey50",
+  legend.pos = "right",
+  legend.title.txt = "Overgewicht (%) 2022"
+)
+
+layoutLayer(
+  title = "Overgewicht per Europees land (2022)",
+  sources = "Eurostat",
+  author = "Jullie namen"
+)
 ```
 
 
