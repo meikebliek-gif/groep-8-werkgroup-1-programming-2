@@ -277,8 +277,6 @@ layoutLayer(title = "Countries Population in Europe",
     scale = NULL, south = TRUE)
 
 
-```
-```{r}
 library(cartography)
 library(sp)
 library(dplyr)
@@ -307,13 +305,18 @@ combined <- merge(combined, iso_tabel, by = "regio")
 data(nuts2006)
 
 # Zorg dat de landnamen overeenkomen
-kaartdata <- nuts0.df %>%
-  left_join(combined, by = c("id" = "regio"))
+kaartdata <- nuts0.spdf %>%
+  left_join(combined, by = "id")
 
 # Variabele numeriek maken
 kaartdata$overgewicht2022 <- as.numeric(kaartdata$overgewicht2022)
 
 # Kaart tekenen
+
+kaartdata$overgewicht2022 <- kaartdata$overgewicht2022 %>% 
+  as.numeric()
+
+# hieronder komt ggplot code
 plot(nuts0.spdf,
      border = "grey70",
      col = "white")
@@ -333,6 +336,11 @@ layoutLayer(
   sources = "Eurostat",
   author = "Jullie namen"
 )
+
+
+ggplot(kaartdata) +
+  geom_sf(aes(fill = overgewicht2022)) +
+  theme_void()
 ```
 
 ```{r}
