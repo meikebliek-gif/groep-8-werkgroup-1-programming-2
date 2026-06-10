@@ -190,23 +190,24 @@ png("combined.png", width = 1500, height = 600)
 plot(combined$inkomen2022, combined$overgewicht2022)
 dev.off()
 ```
-
 ```{r}
-install.packages("viridis")
+# 1. Pakketten laden
+install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
-library(hrbrthemes)
+library(tidyverse)            # bevat ggplot2, dplyr, tidyr
+
+# 2. Inkomensgroep aanmaken in 'combined'
 combined <- combined %>%
   mutate(
     inkomen2022 = as.numeric(inkomen2022),
     groep = case_when(
-      inkomen2022 < 20000              ~ "Arm",
-      inkomen2022 >= 20000 & inkomen2022 < 60000 ~ "Midden",
-      inkomen2022 >= 60000             ~ "Rijk"
+      inkomen2022 < 20000                         ~ "Arm",
+      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Midden",
+      inkomen2022 >= 60000                        ~ "Rijk"
     )
   )
 
-library(tidyverse)
-
+# 3. Data van breed naar lang omzetten
 boxplot_long <- combined %>%
   select(regio, groep, overgewicht2017, overgewicht2022, overgewicht2025) %>%
   pivot_longer(
@@ -223,33 +224,23 @@ boxplot_long <- combined %>%
     )
   )
 
-# Boxplot
+# 4. De boxplot
 boxplot_long %>%
-  ggplot(aes(x = subgroep, y = overgewicht, fill = groep)) +
-    geom_boxplot() +
-    scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
-    theme_ipsum() +
-    theme(
-      legend.position = "none",
-      plot.title = element_text(size = 11)
-    ) +
-    ggtitle("Overgewicht per inkomensgroep") +
-    xlab("")
-
-# Violin
-boxplot_long %>%
+  filter(!is.na(groep)) %>%
+  mutate(groep = factor(groep, levels = c("Arm", "Midden", "Rijk"))) %>%
   ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
-    geom_violin() +
+    geom_boxplot() +
+    facet_wrap(~jaar) +
     scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
-    theme_ipsum() +
+    theme_minimal() +
     theme(
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
-    ggtitle("Overgewicht per inkomensgroep violin") +
+    ggtitle("Overgewicht per inkomensgroep, opgesplitst per jaar") +
     xlab("")
-
 ```
+
 
 
 
