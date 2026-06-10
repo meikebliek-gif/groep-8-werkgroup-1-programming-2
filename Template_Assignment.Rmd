@@ -238,8 +238,9 @@ boxplot_long %>%
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
-    ggtitle("overgewicht per inkomensgroep, opgesplitst per jaar") +
-    xlab("")
+    ggtitle("BMI per inkomensgroep, opgesplitst per jaar") +
+    xlab("") +
+    ylab("BMI")          # <- dit zet "BMI" op de y-as
 ```
 
 ```
