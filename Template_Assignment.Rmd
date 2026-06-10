@@ -242,11 +242,9 @@ boxplot_long %>%
     xlab("")
 ```
 
-```
-
 
 ```{r}
-#werken aan nieuwe grafiek
+# werken aan nieuwe grafiek
 # Library
 library(cartography)
 library(sp)
@@ -284,6 +282,26 @@ library(cartography)
 library(sp)
 library(dplyr)
 
+iso_tabel <- data.frame(
+  regio = c(
+    "Belgium","Bulgaria","Czechia","Denmark","Germany","Estonia",
+    "Ireland","Greece","Spain","France","Croatia","Italy",
+    "Cyprus","Latvia","Lithuania","Luxembourg","Hungary","Malta",
+    "Netherlands","Austria","Poland","Portugal","Romania",
+    "Slovenia","Slovakia","Finland","Sweden","Iceland",
+    "Norway","Switzerland","Bosnia and Herzegovina",
+    "North Macedonia","Serbia","Türkiye"
+  ),
+  id = c(
+    "BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR",
+    "HR","IT","CY","LV","LT","LU","HU","MT","NL","AT",
+    "PL","PT","RO","SI","SK","FI","SE","IS","NO","CH",
+    "BA","MK","RS","TR"
+  )
+)
+
+combined <- merge(combined, iso_tabel, by = "regio")
+
 # Cartography data laden
 data(nuts2006)
 
@@ -314,6 +332,10 @@ layoutLayer(
   sources = "Eurostat",
   author = "Jullie namen"
 )
+```
+
+```{r}
+
 ```
 
 
