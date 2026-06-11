@@ -381,18 +381,16 @@ europe <- ne_countries(scale = "medium", continent = "Europe", returnclass = "sf
 head(europe)
 # name, iso2 (bv. "NL", "DE", "FR"), geometry (MULTIPOLYGON)
 
-# Zorg dat de landnamen overeenkomen
-kaartdata <- nuts0.spdf %>%
-  left_join(combined, by = "id")
+
 
 
 
 # Variabele numeriek maken
-kaartdata$overgewicht2022 <- as.numeric(kaartdata$overgewicht2022)
+combined$overgewicht2022 <- as.numeric(combined$overgewicht2022)
 
 # Kaart tekenen
 
-kaartdata$overgewicht2022 <- kaartdata$overgewicht2022 %>% 
+combined$overgewicht2022 <- combined$overgewicht2022 %>% 
   as.numeric()
 
 # hieronder komt ggplot code
@@ -402,7 +400,7 @@ plot(nuts0.spdf,
 
 choroLayer(
   spdf = nuts0.spdf,
-  df = kaartdata,
+  df = combined,
   var = "overgewicht2022",
   col = carto.pal(pal1 = "orange.pal"),
   border = "grey50",
