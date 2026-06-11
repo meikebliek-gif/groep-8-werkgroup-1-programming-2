@@ -208,7 +208,8 @@ west  <- c("Belgium", "Germany", "France", "Netherlands", "Austria",
 
 # 2. Breed -> lang, jaartal eruit, regio toekennen
 inkomen_long <- combined %>%
-  sf::st_drop_geometry() %>%    
+  sf::st_drop_geometry() %>%
+  mutate(across(starts_with("inkomen"), as.numeric)) %>%   # <- deze regel toevoegen
   pivot_longer(
     cols = starts_with("inkomen"),
     names_to = "jaar",
@@ -216,7 +217,6 @@ inkomen_long <- combined %>%
   ) %>%
   mutate(
     jaar = as.numeric(str_remove(jaar, "inkomen")),
-    inkomen = as.numeric(inkomen),          # ":" wordt automatisch NA
     europa_deel = case_when(
       regio %in% noord ~ "Noord",
       regio %in% zuid  ~ "Zuid",
@@ -232,8 +232,7 @@ inkomen_long <- combined %>%
 inkomen_regio <- inkomen_long %>%
   filter(jaar >= 2006) %>%                  # 2002 weglaten: te veel gaten
   group_by(europa_deel, jaar) %>%
-  summarise(med_inkomen = median(inkomen, na.rm = TRUE)) %>%
-  ungroup()
+   summarise(med_inkomen = median(inkomen, na.rm = TRUE), .groups = "drop")
 
 # 4. Connected scatterplot met de schuldencrisis gemarkeerd
 ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
@@ -277,13 +276,13 @@ combined <- combined %>%
 # 3. Data van breed naar lang omzetten
 boxplot_long <- combined %>%
   select(regio, groep, overgewicht2017, overgewicht2022, overgewicht2025) %>%
+  mutate(across(starts_with("overgewicht"), as.numeric)) %>%   # <- deze regel toevoegen
   pivot_longer(
     cols = c(overgewicht2017, overgewicht2022, overgewicht2025),
     names_to = "jaar",
     values_to = "overgewicht"
   ) %>%
   mutate(
-    overgewicht = as.numeric(overgewicht),
     jaar = recode(jaar,
       "overgewicht2017" = "2017",
       "overgewicht2022" = "2022",
