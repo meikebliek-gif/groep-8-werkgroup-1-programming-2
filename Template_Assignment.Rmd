@@ -417,7 +417,14 @@ library(ggplot2)
 ggplot(combined) +
   geom_sf(aes(fill = overgewicht2022)) +
   theme_void()
+
+
+filter(combined, combined$overgewicht2022 == ":")
+
+combined$overgewicht2022[combined$overgewicht2022 == ":"] <- NA
+
 ```
+
 
 ```{r}
 
