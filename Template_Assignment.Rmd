@@ -423,6 +423,26 @@ filter(combined, combined$overgewicht2022 == ":")
 
 combined$overgewicht2022[combined$overgewicht2022 == ":"] <- NA
 
+
+library(paletteer)
+paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
+
+library(ggplot2)
+library(paletteer)
+
+kleuren <- paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
+
+ggplot(combined) +
+  geom_sf(aes(fill = overgewicht2022), color = "grey50", linewidth = 0.2) +
+  scale_fill_gradientn(
+    colours = kleuren,
+    na.value = "lightgrey",
+    name = "Overgewicht (%)"
+  ) +
+  theme_void() +
+  labs(
+    title = "Overgewicht per Europees land (2022)"
+  )
 ```
 
 
