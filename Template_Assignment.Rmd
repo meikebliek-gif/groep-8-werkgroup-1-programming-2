@@ -192,6 +192,7 @@ dev.off()
 ```
 
 ```{r}
+#Event associated visualized 
 library(tidyverse)
 library(viridis)
 
@@ -207,6 +208,7 @@ west  <- c("Belgium", "Germany", "France", "Netherlands", "Austria",
 
 # 2. Breed -> lang, jaartal eruit, regio toekennen
 inkomen_long <- combined %>%
+  sf::st_drop_geometry() %>%    
   pivot_longer(
     cols = starts_with("inkomen"),
     names_to = "jaar",
@@ -255,6 +257,7 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
 ```
 
 ```{r}
+#Sub-population variation visualized 
 # 1. Pakketten laden
 install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
@@ -301,13 +304,14 @@ boxplot_long %>%
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
-    ggtitle("BMI per inkomensgroep, opgesplitst per jaar") +
+    ggtitle("overgewicht % per inkomensgroep, opgesplitst per jaar") +
     xlab("") +
-    ylab("BMI")          # <- dit zet "BMI" op de y-as
+    ylab("overgewicht %")          # <- dit zet "BMI" op de y-as
 ```
 
 
 ```{r}
+#Spatial variation visualized 
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
 # werken aan nieuwe grafiek
