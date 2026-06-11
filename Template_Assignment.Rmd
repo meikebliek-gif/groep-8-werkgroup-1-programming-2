@@ -192,6 +192,7 @@ dev.off()
 ```
 
 ```{r}
+#Event associated visualized 
 library(tidyverse)
 library(viridis)
 
@@ -255,6 +256,7 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
 ```
 
 ```{r}
+#Sub-population variation visualized 
 # 1. Pakketten laden
 install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
@@ -308,6 +310,7 @@ boxplot_long %>%
 
 
 ```{r}
+#Spatial variation visualized 
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
 # werken aan nieuwe grafiek
