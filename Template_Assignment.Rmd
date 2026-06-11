@@ -369,9 +369,23 @@ combined <- merge(combined, iso_tabel, by = "regio")
 # Cartography data laden
 data(nuts2006)
 
+install.packages(c("rnaturalearth", "rnaturalearthdata", "sf"))
+
+library(rnaturalearth)
+library(sf)
+library(dplyr)
+
+europe <- ne_countries(scale = "medium", continent = "Europe", returnclass = "sf") |>
+  select(name, iso2 = iso_a2, geometry)
+
+head(europe)
+# name, iso2 (bv. "NL", "DE", "FR"), geometry (MULTIPOLYGON)
+
 # Zorg dat de landnamen overeenkomen
 kaartdata <- nuts0.spdf %>%
   left_join(combined, by = "id")
+
+
 
 # Variabele numeriek maken
 kaartdata$overgewicht2022 <- as.numeric(kaartdata$overgewicht2022)
