@@ -432,6 +432,12 @@ library(paletteer)
 
 kleuren <- paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
 
+library(paletteer)
+
+kleuren <- rev(as.character(
+  paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
+))
+
 ggplot(combined) +
   geom_sf(aes(fill = overgewicht2022), color = "grey50", linewidth = 0.2) +
   scale_fill_gradientn(
