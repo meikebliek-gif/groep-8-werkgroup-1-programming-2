@@ -192,6 +192,69 @@ dev.off()
 ```
 
 ```{r}
+library(tidyverse)
+library(viridis)
+
+# 1. Volledige regio-indeling — ALLE landen uit je data
+noord <- c("Denmark", "Finland", "Sweden", "Estonia", "Latvia", "Lithuania",
+           "Iceland", "Norway")
+zuid  <- c("Greece", "Italy", "Spain", "Portugal", "Cyprus", "Malta",
+           "Croatia", "Slovenia",
+           "Bosnia and Herzegovina", "North Macedonia", "Albania", "Serbia")
+oost  <- c("Poland", "Hungary", "Czechia", "Romania", "Bulgaria", "Slovakia")
+west  <- c("Belgium", "Germany", "France", "Netherlands", "Austria",
+           "Ireland", "Luxembourg", "Switzerland")
+
+# 2. Breed -> lang, jaartal eruit, regio toekennen
+inkomen_long <- combined %>%
+  pivot_longer(
+    cols = starts_with("inkomen"),
+    names_to = "jaar",
+    values_to = "inkomen"
+  ) %>%
+  mutate(
+    jaar = as.numeric(str_remove(jaar, "inkomen")),
+    inkomen = as.numeric(inkomen),          # ":" wordt automatisch NA
+    europa_deel = case_when(
+      regio %in% noord ~ "Noord",
+      regio %in% zuid  ~ "Zuid",
+      regio %in% oost  ~ "Oost",
+      regio %in% west  ~ "West"
+    )
+  ) %>%
+  filter(!is.na(europa_deel))
+
+# 3. Mediaan inkomen per Europa-deel per jaar
+#    (mediaan i.p.v. gemiddelde: minder gevoelig voor uitschieters
+#     zoals Luxembourg en Switzerland)
+inkomen_regio <- inkomen_long %>%
+  filter(jaar >= 2006) %>%                  # 2002 weglaten: te veel gaten
+  group_by(europa_deel, jaar) %>%
+  summarise(med_inkomen = median(inkomen, na.rm = TRUE)) %>%
+  ungroup()
+
+# 4. Connected scatterplot met de schuldencrisis gemarkeerd
+ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
+                          color = europa_deel, group = europa_deel)) +
+  annotate("rect", xmin = 2010, xmax = 2012, ymin = -Inf, ymax = Inf,
+           alpha = 0.15, fill = "grey40") +
+  annotate("text", x = 2011, y = Inf, label = "Schuldencrisis",
+           vjust = 1.5, size = 3.5, color = "grey30") +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2.5) +
+  scale_color_viridis(discrete = TRUE, option = "D", end = 0.9) +
+  scale_x_continuous(breaks = seq(2006, 2022, 4)) +
+  theme_minimal() +
+  labs(
+    title = "Mediaan inkomen per Europese regio (2006-2022)",
+    subtitle = "Vooral Zuid-Europa stagneert tijdens de schuldencrisis",
+    x = "Jaar",
+    y = "Mediaan inkomen (\u20ac)",
+    color = "Regio"
+  )
+```
+
+```{r}
 # 1. Pakketten laden
 install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
