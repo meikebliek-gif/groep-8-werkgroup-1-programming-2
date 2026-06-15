@@ -53,7 +53,99 @@ Dit is een relevant onderwerp omdat overgewicht zorgt voor gezondheidsproblemen.
 Eurostat. (n.d.). Obesity rate by body mass index (BMI) (sdg_02_10) [Data set]. Geraadpleegd op 2 juni 2026, van https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en
 
 Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. European Commission. https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/DDN-20241107-1
- 
+
+
+
+
+```{r}
+
+```
+
+
+```{r loading_data}
+library(tidyverse)
+dataset <- midwest
+filter(dataset, state == "IL")
+```
+
+midwest is an example dataset included in the tidyverse package
+
+## 2.2 Provide a short summary of the dataset(s)
+De eerste dataset toont de ontwikkeling van het inkomen van de bevolking in verschillende Europese landen tussen 2002 en 2022. Over het algemeen is het inkomen in de meeste landen gestegen gedurende deze periode, hoewel de groei niet overal even sterk was. Daarnaast zijn er duidelijke verschillen zichtbaar tussen landen, wat wijst op uiteenlopende economische ontwikkelingen en welvaartsniveaus binnen Europa.
+De tweede dataset geeft informatie over het percentage van de bevolking met overgewicht in verschillende Europese landen in 2017, 2020 en 2025. De gegevens laten zien dat overgewicht in veel landen een veelvoorkomend gezondheidsprobleem is. In meerdere landen is een stijgende trend zichtbaar, wat erop wijst dat het aandeel mensen met overgewicht in de loop der jaren verder toeneemt. Hierdoor blijft overgewicht een belangrijk aandachtspunt voor de volksgezondheid in Europa.
+
+```{r}
+head(dataset)
+```
+
+In this case we see 28 variables, but we miss some information on what units they are in. We also don't know anything about the year/moment in which this data has been captured.
+
+``` r
+inline_code = TRUE
+```
+
+These are things that are usually included in the metadata of the dataset. For your project, you need to provide us with the information from your metadata that we need to understand your dataset of choice.
+
+## 2.3 Describe the type of variables included
+
+Think of things like:
+
+-   Do the variables contain health information or SES information?
+
+-   Have they been measured by interviewing individuals or is the data coming from administrative sources?
+
+*For the sake of this example, I will continue with the assignment...*
+
+# Part 3 - Quantifying
+
+## 3.1 Data cleaning
+
+Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
+
+```{r data_cleaning}
+mean(dataset$percollege)
+```
+
+Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
+
+## 3.2 Generate necessary variables
+
+Variable 1
+
+```{r gen_var1}
+#gemiddelde inkomen 
+library(sf)
+library(dplyr)
+resultaat <- combined %>%
+   st_drop_geometry() %>%
+  summarise(
+    INCgem2002 = mean(suppressWarnings(as.numeric(inkomen2002, ":")), na.rm = TRUE),
+    INCgem2006 = mean(suppressWarnings(as.numeric(inkomen2006, ":")), na.rm = TRUE),
+    INCgem2010 = mean(suppressWarnings(as.numeric(inkomen2010, ":")), na.rm = TRUE),
+    INCgem2014 = mean(suppressWarnings(as.numeric(inkomen2014, ":")), na.rm = TRUE),
+    INCgem2018 = mean(suppressWarnings(as.numeric(inkomen2018, ":")), na.rm = TRUE),
+    INCgem2022 = mean(suppressWarnings(as.numeric(inkomen2022, ":")), na.rm = TRUE)
+  )
+resultaat
+```
+
+Variable 2
+
+```{r gen_var2}
+#gemiddelde overgewicht
+library(sf)
+library(dplyr)
+resultaat <- combined %>%
+   st_drop_geometry() %>%
+  summarise(
+    OVgem2017 = mean(suppressWarnings(as.numeric(overgewicht2017, ":")), na.rm = TRUE),
+    OVgem2022 = mean(suppressWarnings(as.numeric(overgewicht2022, ":")), na.rm = TRUE),
+    OVgem2025 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
+  )
+resultaat
+```
+
+## 3.3 Visualize temporal variation
 
 ```{r}
 library(readr)
@@ -187,102 +279,6 @@ combined <- replace(combined, combined == ":", NA)
 png("combined.png", width = 1500, height = 600)
 plot(combined$inkomen2022, combined$overgewicht2022)
 dev.off()
-```
-
-
-
-```{r}
-
-```
-
-
-```{r loading_data}
-library(tidyverse)
-dataset <- midwest
-filter(dataset, state == "IL")
-```
-
-midwest is an example dataset included in the tidyverse package
-
-## 2.2 Provide a short summary of the dataset(s)
-De eerste dataset toont de ontwikkeling van het inkomen van de bevolking in verschillende Europese landen tussen 2002 en 2022. Over het algemeen is het inkomen in de meeste landen gestegen gedurende deze periode, hoewel de groei niet overal even sterk was. Daarnaast zijn er duidelijke verschillen zichtbaar tussen landen, wat wijst op uiteenlopende economische ontwikkelingen en welvaartsniveaus binnen Europa.
-De tweede dataset geeft informatie over het percentage van de bevolking met overgewicht in verschillende Europese landen in 2017, 2020 en 2025. De gegevens laten zien dat overgewicht in veel landen een veelvoorkomend gezondheidsprobleem is. In meerdere landen is een stijgende trend zichtbaar, wat erop wijst dat het aandeel mensen met overgewicht in de loop der jaren verder toeneemt. Hierdoor blijft overgewicht een belangrijk aandachtspunt voor de volksgezondheid in Europa.
-
-```{r}
-head(dataset)
-```
-
-In this case we see 28 variables, but we miss some information on what units they are in. We also don't know anything about the year/moment in which this data has been captured.
-
-``` r
-inline_code = TRUE
-```
-
-These are things that are usually included in the metadata of the dataset. For your project, you need to provide us with the information from your metadata that we need to understand your dataset of choice.
-
-## 2.3 Describe the type of variables included
-
-Think of things like:
-
--   Do the variables contain health information or SES information?
-
--   Have they been measured by interviewing individuals or is the data coming from administrative sources?
-
-*For the sake of this example, I will continue with the assignment...*
-
-# Part 3 - Quantifying
-
-## 3.1 Data cleaning
-
-Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
-
-```{r data_cleaning}
-mean(dataset$percollege)
-```
-
-Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
-
-## 3.2 Generate necessary variables
-
-Variable 1
-
-```{r gen_var1}
-#gemiddelde inkomen 
-library(sf)
-library(dplyr)
-resultaat <- combined %>%
-   st_drop_geometry() %>%
-  summarise(
-    INCgem2002 = mean(suppressWarnings(as.numeric(inkomen2002, ":")), na.rm = TRUE),
-    INCgem2006 = mean(suppressWarnings(as.numeric(inkomen2006, ":")), na.rm = TRUE),
-    INCgem2010 = mean(suppressWarnings(as.numeric(inkomen2010, ":")), na.rm = TRUE),
-    INCgem2014 = mean(suppressWarnings(as.numeric(inkomen2014, ":")), na.rm = TRUE),
-    INCgem2018 = mean(suppressWarnings(as.numeric(inkomen2018, ":")), na.rm = TRUE),
-    INCgem2022 = mean(suppressWarnings(as.numeric(inkomen2022, ":")), na.rm = TRUE)
-  )
-resultaat
-```
-
-Variable 2
-
-```{r gen_var2}
-#gemiddelde overgewicht
-library(sf)
-library(dplyr)
-resultaat <- combined %>%
-   st_drop_geometry() %>%
-  summarise(
-    OVgem2017 = mean(suppressWarnings(as.numeric(overgewicht2017, ":")), na.rm = TRUE),
-    OVgem2022 = mean(suppressWarnings(as.numeric(overgewicht2022, ":")), na.rm = TRUE),
-    OVgem2025 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
-  )
-resultaat
-```
-
-## 3.3 Visualize temporal variation
-
-```{r}
-
 ```
 
 ## 3.4 Visualize spatial variation
