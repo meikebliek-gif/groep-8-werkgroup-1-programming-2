@@ -1,10 +1,6 @@
 ---
-<<<<<<< Updated upstream
-title: "Template" Hoe zwaar weegt welvaart?
-=======
-title: ""
->>>>>>> Stashed changes
-author: "Studentnames and studentnumbers here" Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488
+title: "Hoe zwaar weegt welvaart" 
+author: "Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488" 
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -27,7 +23,7 @@ require(yaml)
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 
-Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
+
 
 
 <<<<<<< HEAD
@@ -45,17 +41,18 @@ Include your tutorial lecturer's name: Fitzgerald, J.F.
 Use APA referencing throughout your document. [Here's a link to some explanation.](https://www.mendeley.com/guides/apa-citation-guide/)
 
 ## 1.1 Describe the Social Problem
-In welke mate welvaart overgewicht beinvloed binnen Europa.
-Include the following:
+sociale vraag: In welke mate beinvloedt inkomen het percentage aan mensen met overgewicht in europa?
 
--   Why is this relevant?
-Dit is een relevant onderwerp omdat overgewicht zorgt voor gezondheidsproblemen. Door onderzoek te doen naar de correlatie tussen rijkdom en overgewicht, kunnen we beter begrijpen hoe inkomen de gezondheid in een land bepaald. Hierdoor kunnen we maatregelen nemen om overgewicht te voorkomen.
+Dit is een relevant onderwerp omdat overgewicht zorgt voor gezondheidsproblemen. Door onderzoek te doen naar de correlatie tussen rijkdom en overgewicht, kunnen we beter begrijpen hoe inkomen de gezondheid in een land bepaald. Dit geeft ons een duidelijker overzicht voor de vraag of er een duidelijke geld oorzaak aanwezig is in het landelijke percentage v
 -   ...
 
 # Part 2 - Data Sourcing
 
 ## 2.1 Load in the data
-https://ec.europa.eu/eurostat/databrowser/view/ilc_hch10/default/table?lang=en&category=livcon.ilc.ilc_ahm.ilc_hch 
+Eurostat. (n.d.). Obesity rate by body mass index (BMI) (sdg_02_10) [Data set]. Geraadpleegd op 2 juni 2026, van https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en
+
+Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. European Commission. https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/DDN-20241107-1
+ 
 
 ```{r}
 library(readr)
@@ -218,9 +215,9 @@ inkomen_long <- combined %>%
   mutate(
     jaar = as.numeric(str_remove(jaar, "inkomen")),
     europa_deel = case_when(
-      regio %in% noord ~ "North",
-      regio %in% zuid  ~ "South",
-      regio %in% oost  ~ "East",
+      regio %in% noord ~ "Noord",
+      regio %in% zuid  ~ "Zuid",
+      regio %in% oost  ~ "Oost",
       regio %in% west  ~ "West"
     )
   ) %>%
@@ -239,7 +236,7 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
                           color = europa_deel, group = europa_deel)) +
   annotate("rect", xmin = 2010, xmax = 2012, ymin = -Inf, ymax = Inf,
            alpha = 0.15, fill = "grey40") +
-  annotate("text", x = 2011, y = Inf, label = "Debt crisis",
+  annotate("text", x = 2011, y = Inf, label = "Schuldencrisis",
            vjust = 1.5, size = 3.5, color = "grey30") +
   geom_line(linewidth = 1) +
   geom_point(size = 2.5) +
@@ -247,18 +244,18 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
   scale_x_continuous(breaks = seq(2006, 2022, 4)) +
   theme_minimal() +
   labs(
-    title = "Median income per European region (2006-2022)",
-    subtitle = "Southern Europe in particular stagnates during the debt crisis",
-    x = "Year",
-    y = "Median income (\u20ac)",
-    color = "Region"
+    title = "Mediaan inkomen per Europese regio (2006-2022)",
+    subtitle = "Vooral Zuid-Europa stagneert tijdens de schuldencrisis",
+    x = "Jaar",
+    y = "Mediaan inkomen (\u20ac)",
+    color = "Regio"
   )
 ```
 
 ```{r}
 #Sub-population variation visualized 
 # 1. Pakketten laden
-#install.packages("viridis")   # alleen de eerste keer nodig
+install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
 library(tidyverse)            # bevat ggplot2, dplyr, tidyr
 
@@ -267,9 +264,9 @@ combined <- combined %>%
   mutate(
     inkomen2022 = as.numeric(inkomen2022),
     groep = case_when(
-      inkomen2022 < 20000                         ~ "Lower",
-      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Middle",
-      inkomen2022 >= 60000                        ~ "Upper"
+      inkomen2022 < 20000                         ~ "Arm",
+      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Midden",
+      inkomen2022 >= 60000                        ~ "Rijk"
     )
   )
 
@@ -293,7 +290,7 @@ boxplot_long <- combined %>%
 # 4. De boxplot
 boxplot_long %>%
   filter(!is.na(groep)) %>%
-  mutate(groep = factor(groep, levels = c("Lower", "Middle", "Upper"))) %>%
+  mutate(groep = factor(groep, levels = c("Arm", "Midden", "Rijk"))) %>%
   ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
     geom_boxplot() +
     facet_wrap(~jaar) +
@@ -303,9 +300,9 @@ boxplot_long %>%
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
-    ggtitle("Overweight % per incomegroup, per year") +
+    ggtitle("overgewicht % per inkomensgroep, opgesplitst per jaar") +
     xlab("") +
-    ylab("Overweight %")          # <- dit zet "BMI" op de y-as
+    ylab("overgewicht %")          # <- dit zet "BMI" op de y-as
 ```
 
 
@@ -349,6 +346,17 @@ library(cartography)
 library(sp)
 library(dplyr)
 
+library(dplyr)
+
+#data <- rbind(
+ # data,
+  #data.frame(regio = "Frankrijk", overgewicht2022 = NA)
+#)
+
+europe$name[europe$iso2 == "FR"]
+
+
+
 iso_tabel <- data.frame(
   regio = c(
     "Belgium","Bulgaria","Czechia","Denmark","Germany","Estonia",
@@ -357,13 +365,13 @@ iso_tabel <- data.frame(
     "Netherlands","Austria","Poland","Portugal","Romania",
     "Slovenia","Slovakia","Finland","Sweden","Iceland",
     "Norway","Switzerland","Bosnia and Herzegovina",
-    "North Macedonia","Serbia","Türkiye"
+    "North Macedonia","Serbia","Türkiye","France"
   ),
   id = c(
     "BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR",
     "HR","IT","CY","LV","LT","LU","HU","MT","NL","AT",
     "PL","PT","RO","SI","SK","FI","SE","IS","NO","CH",
-    "BA","MK","RS","TR"
+    "BA","MK","RS","TR","FR"
   )
 )
 
@@ -371,6 +379,8 @@ combined <- merge(combined, iso_tabel, by = "regio")
 
 # Cartography data laden
 #data(nuts2006)
+
+
 
 library(rnaturalearth)
 library(sf)
@@ -382,9 +392,15 @@ europe <- ne_countries(scale = "medium", continent = "Europe", returnclass = "sf
 head(europe)
 # name, iso2 (bv. "NL", "DE", "FR"), geometry (MULTIPOLYGON)
 
+europe <- europe |>
+  filter(!iso2 %in% c("RU")) 
+
 combined$id
 europe$iso2
-combined <- inner_join(europe, combined, join_by(iso2 == id))
+combined <- left_join(europe, combined, join_by(iso2 == id))
+
+combined_df <- st_drop_geometry(combined)
+
 
 
 # Variabele numeriek maken
@@ -416,6 +432,9 @@ combined$overgewicht2022 <- combined$overgewicht2022 %>%
 #   legend.title.txt = "Overgewicht (%) 2022"
 # )
 
+
+
+
 library(ggplot2)
 ggplot(combined) +
   geom_sf(aes(fill = overgewicht2022)) +
@@ -446,11 +465,11 @@ ggplot(combined) +
   scale_fill_gradientn(
     colours = kleuren,
     na.value = "lightgrey",
-    name = "Overgewicht (%)"
+    name = "Overweight (%)"
   ) +
   theme_void() +
   labs(
-    title = "Overgewicht per Europees land (2022)"
+    title = "Overweight by European country (2022)"
   )
 ```
 
