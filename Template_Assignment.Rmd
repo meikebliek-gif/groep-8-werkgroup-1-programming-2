@@ -1,10 +1,6 @@
 ---
-<<<<<<< Updated upstream
-title: "Template" Hoe zwaar weegt welvaart?
-=======
-title: ""
->>>>>>> Stashed changes
-author: "Studentnames and studentnumbers here" Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488
+title: "Hoe zwaar weegt welvaart" 
+author: "Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488" 
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -45,17 +41,18 @@ Include your tutorial lecturer's name: Fitzgerald, J.F.
 Use APA referencing throughout your document. [Here's a link to some explanation.](https://www.mendeley.com/guides/apa-citation-guide/)
 
 ## 1.1 Describe the Social Problem
-In welke mate welvaart overgewicht beinvloed binnen Europa.
-Include the following:
+sociale vraag: In welke mate beinvloedt inkomen het percentage aan mensen met overgewicht in europa?
 
--   Why is this relevant?
-Dit is een relevant onderwerp omdat overgewicht zorgt voor gezondheidsproblemen. Door onderzoek te doen naar de correlatie tussen rijkdom en overgewicht, kunnen we beter begrijpen hoe inkomen de gezondheid in een land bepaald. Hierdoor kunnen we maatregelen nemen om overgewicht te voorkomen.
+Dit is een relevant onderwerp omdat overgewicht zorgt voor gezondheidsproblemen. Door onderzoek te doen naar de correlatie tussen rijkdom en overgewicht, kunnen we beter begrijpen hoe inkomen de gezondheid in een land bepaald. Dit geeft ons een duidelijker overzicht voor de vraag of er een duidelijke geld oorzaak aanwezig is in het landelijke percentage v
 -   ...
 
 # Part 2 - Data Sourcing
 
 ## 2.1 Load in the data
-https://ec.europa.eu/eurostat/databrowser/view/ilc_hch10/default/table?lang=en&category=livcon.ilc.ilc_ahm.ilc_hch 
+Eurostat. (n.d.). Obesity rate by body mass index (BMI) (sdg_02_10) [Data set]. Geraadpleegd op 2 juni 2026, van https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en
+
+Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. European Commission. https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/DDN-20241107-1
+ 
 
 ```{r}
 library(readr)
@@ -208,7 +205,8 @@ west  <- c("Belgium", "Germany", "France", "Netherlands", "Austria",
 
 # 2. Breed -> lang, jaartal eruit, regio toekennen
 inkomen_long <- combined %>%
-  sf::st_drop_geometry() %>%    
+  sf::st_drop_geometry() %>%
+  mutate(across(starts_with("inkomen"), as.numeric)) %>%   # <- deze regel toevoegen
   pivot_longer(
     cols = starts_with("inkomen"),
     names_to = "jaar",
@@ -216,7 +214,6 @@ inkomen_long <- combined %>%
   ) %>%
   mutate(
     jaar = as.numeric(str_remove(jaar, "inkomen")),
-    inkomen = as.numeric(inkomen),          # ":" wordt automatisch NA
     europa_deel = case_when(
       regio %in% noord ~ "Noord",
       regio %in% zuid  ~ "Zuid",
@@ -232,8 +229,7 @@ inkomen_long <- combined %>%
 inkomen_regio <- inkomen_long %>%
   filter(jaar >= 2006) %>%                  # 2002 weglaten: te veel gaten
   group_by(europa_deel, jaar) %>%
-  summarise(med_inkomen = median(inkomen, na.rm = TRUE)) %>%
-  ungroup()
+   summarise(med_inkomen = median(inkomen, na.rm = TRUE), .groups = "drop")
 
 # 4. Connected scatterplot met de schuldencrisis gemarkeerd
 ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
@@ -277,13 +273,13 @@ combined <- combined %>%
 # 3. Data van breed naar lang omzetten
 boxplot_long <- combined %>%
   select(regio, groep, overgewicht2017, overgewicht2022, overgewicht2025) %>%
+  mutate(across(starts_with("overgewicht"), as.numeric)) %>%   # <- deze regel toevoegen
   pivot_longer(
     cols = c(overgewicht2017, overgewicht2022, overgewicht2025),
     names_to = "jaar",
     values_to = "overgewicht"
   ) %>%
   mutate(
-    overgewicht = as.numeric(overgewicht),
     jaar = recode(jaar,
       "overgewicht2017" = "2017",
       "overgewicht2022" = "2022",
