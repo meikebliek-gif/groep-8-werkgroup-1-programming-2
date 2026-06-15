@@ -361,9 +361,9 @@ combined <- combined %>%
   mutate(
     inkomen2022 = as.numeric(inkomen2022),
     groep = case_when(
-      inkomen2022 < 20000                         ~ "Arm",
-      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Midden",
-      inkomen2022 >= 60000                        ~ "Rijk"
+      inkomen2022 < 20000                         ~ "Lower",
+      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Middle",
+      inkomen2022 >= 60000                        ~ "Upper"
     )
   )
 
@@ -373,8 +373,8 @@ boxplot_long <- combined %>%
   mutate(across(starts_with("overgewicht"), as.numeric)) %>%   # <- deze regel toevoegen
   pivot_longer(
     cols = c(overgewicht2017, overgewicht2022, overgewicht2025),
-    names_to = "jaar",
-    values_to = "overgewicht"
+    names_to = "Year",
+    values_to = "Overweight"
   ) %>%
   mutate(
     jaar = recode(jaar,
@@ -387,7 +387,7 @@ boxplot_long <- combined %>%
 # 4. De boxplot
 boxplot_long %>%
   filter(!is.na(groep)) %>%
-  mutate(groep = factor(groep, levels = c("Arm", "Midden", "Rijk"))) %>%
+  mutate(groep = factor(groep, levels = c("Lower", "Middle", "Upper"))) %>%
   ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
     geom_boxplot() +
     facet_wrap(~jaar) +
@@ -397,9 +397,9 @@ boxplot_long %>%
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
-    ggtitle("overgewicht % per inkomensgroep, opgesplitst per jaar") +
+    ggtitle("Overweight % per income group, per year") +
     xlab("") +
-    ylab("overgewicht %")          # <- dit zet "BMI" op de y-as
+    ylab("Overweight %")          # <- dit zet "Overweight %" op de y-as
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
