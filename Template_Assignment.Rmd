@@ -218,9 +218,9 @@ inkomen_long <- combined %>%
   mutate(
     jaar = as.numeric(str_remove(jaar, "inkomen")),
     europa_deel = case_when(
-      regio %in% noord ~ "Noord",
-      regio %in% zuid  ~ "Zuid",
-      regio %in% oost  ~ "Oost",
+      regio %in% noord ~ "North",
+      regio %in% zuid  ~ "South",
+      regio %in% oost  ~ "East",
       regio %in% west  ~ "West"
     )
   ) %>%
@@ -267,9 +267,9 @@ combined <- combined %>%
   mutate(
     inkomen2022 = as.numeric(inkomen2022),
     groep = case_when(
-      inkomen2022 < 20000                         ~ "Arm",
-      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Midden",
-      inkomen2022 >= 60000                        ~ "Rijk"
+      inkomen2022 < 20000                         ~ "Lower",
+      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Middle",
+      inkomen2022 >= 60000                        ~ "Upper"
     )
   )
 
@@ -293,7 +293,7 @@ boxplot_long <- combined %>%
 # 4. De boxplot
 boxplot_long %>%
   filter(!is.na(groep)) %>%
-  mutate(groep = factor(groep, levels = c("Arm", "Midden", "Rijk"))) %>%
+  mutate(groep = factor(groep, levels = c("Lower", "Middle", "Upper"))) %>%
   ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
     geom_boxplot() +
     facet_wrap(~jaar) +
@@ -303,9 +303,9 @@ boxplot_long %>%
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
-    ggtitle("overgewicht % per inkomensgroep, opgesplitst per jaar") +
+    ggtitle("Overweight % per incomegroup, per year") +
     xlab("") +
-    ylab("overgewicht %")          # <- dit zet "BMI" op de y-as
+    ylab("Overweight %")          # <- dit zet "BMI" op de y-as
 ```
 
 
