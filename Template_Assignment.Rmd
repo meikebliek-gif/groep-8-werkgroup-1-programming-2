@@ -23,7 +23,7 @@ require(yaml)
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 
-Include your names, Anne Mak, Nynke Latham, Tobias Pierik, Vycho de Graaf, Meike Bliek
+
 
 
 <<<<<<< HEAD
