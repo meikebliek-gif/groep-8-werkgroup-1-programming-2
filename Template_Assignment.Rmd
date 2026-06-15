@@ -116,7 +116,7 @@ Variable 1
 #gemiddelde inkomen 
 library(sf)
 library(dplyr)
-resultaat <- combined %>%
+resultaat_inkomen <- combined %>%
    st_drop_geometry() %>%
   summarise(
     INCgem2002 = mean(suppressWarnings(as.numeric(inkomen2002, ":")), na.rm = TRUE),
@@ -128,6 +128,19 @@ resultaat <- combined %>%
   )
 resultaat
 ```
+```{r}
+groei_inkomen <- resultaat_inkomen %>%
+  mutate(
+    groei_2002_2006 = (INCgem2006 - INCgem2002) / INCgem2002 * 100,
+    groei_2006_2010 = (INCgem2010 - INCgem2006) / INCgem2006 * 100,
+    groei_2010_2014 = (INCgem2014 - INCgem2010) / INCgem2010 * 100,
+    groei_2014_2018 = (INCgem2018 - INCgem2014) / INCgem2014 * 100,
+    groei_2018_2022 = (INCgem2022 - INCgem2018) / INCgem2018 * 100
+  ) %>%
+  select(starts_with("groei_"))
+
+groei_inkomen
+```
 
 Variable 2
 
@@ -135,7 +148,7 @@ Variable 2
 #gemiddelde overgewicht
 library(sf)
 library(dplyr)
-resultaat <- combined %>%
+resultaat_overgewicht <- combined %>%
    st_drop_geometry() %>%
   summarise(
     OVgem2017 = mean(suppressWarnings(as.numeric(overgewicht2017, ":")), na.rm = TRUE),
@@ -143,6 +156,16 @@ resultaat <- combined %>%
     OVgem2025 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
   )
 resultaat
+```
+```{r}
+groei_overgewicht <- resultaat_overgewicht %>%
+  mutate(
+    groei_2017_2022 = (OVgem2022 - OVgem2017) / OVgem2017 * 100,
+    groei_2022_2025 = (OVgem2025 - OVgem2022) / OVgem2022 * 100
+  ) %>%
+  select(starts_with("groei_"))
+
+groei_overgewicht
 ```
 
 ## 3.3 Visualize temporal variation
