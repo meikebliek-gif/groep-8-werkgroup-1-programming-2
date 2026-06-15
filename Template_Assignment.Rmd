@@ -126,7 +126,7 @@ resultaat_inkomen <- combined %>%
     INCgem2018 = mean(suppressWarnings(as.numeric(inkomen2018, ":")), na.rm = TRUE),
     INCgem2022 = mean(suppressWarnings(as.numeric(inkomen2022, ":")), na.rm = TRUE)
   )
-resultaat
+resultaat_inkomen
 ```
 ```{r}
 groei_inkomen <- resultaat_inkomen %>%
@@ -155,7 +155,7 @@ resultaat_overgewicht <- combined %>%
     OVgem2022 = mean(suppressWarnings(as.numeric(overgewicht2022, ":")), na.rm = TRUE),
     OVgem2025 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
   )
-resultaat
+resultaat_overgewicht
 ```
 ```{r}
 groei_overgewicht <- resultaat_overgewicht %>%
