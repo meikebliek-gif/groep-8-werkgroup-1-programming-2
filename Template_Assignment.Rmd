@@ -239,7 +239,7 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
                           color = europa_deel, group = europa_deel)) +
   annotate("rect", xmin = 2010, xmax = 2012, ymin = -Inf, ymax = Inf,
            alpha = 0.15, fill = "grey40") +
-  annotate("text", x = 2011, y = Inf, label = "Schuldencrisis",
+  annotate("text", x = 2011, y = Inf, label = "Debt crisis",
            vjust = 1.5, size = 3.5, color = "grey30") +
   geom_line(linewidth = 1) +
   geom_point(size = 2.5) +
@@ -247,11 +247,11 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
   scale_x_continuous(breaks = seq(2006, 2022, 4)) +
   theme_minimal() +
   labs(
-    title = "Mediaan inkomen per Europese regio (2006-2022)",
-    subtitle = "Vooral Zuid-Europa stagneert tijdens de schuldencrisis",
-    x = "Jaar",
-    y = "Mediaan inkomen (\u20ac)",
-    color = "Regio"
+    title = "Median income per European region (2006-2022)",
+    subtitle = "Southern Europe in particular stagnates during the debt crisis",
+    x = "Year",
+    y = "Median income (\u20ac)",
+    color = "Region"
   )
 ```
 
