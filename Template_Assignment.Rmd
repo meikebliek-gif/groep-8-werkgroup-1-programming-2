@@ -511,12 +511,26 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 Variable 1
 
 ```{r gen_var1}
-
+#gemiddelde inkomen per jaar 
+library(sf)
+library(dplyr)
+resultaat <- combined %>%
+   st_drop_geometry() %>%
+  summarise(
+    gem2002 = mean(suppressWarnings(as.numeric(inkomen2002, ":")), na.rm = TRUE),
+    gem2006 = mean(suppressWarnings(as.numeric(inkomen2006, ":")), na.rm = TRUE),
+    gem2010 = mean(suppressWarnings(as.numeric(inkomen2010, ":")), na.rm = TRUE),
+    gem2014 = mean(suppressWarnings(as.numeric(inkomen2014, ":")), na.rm = TRUE),
+    gem2018 = mean(suppressWarnings(as.numeric(inkomen2018, ":")), na.rm = TRUE),
+    gem2022 = mean(suppressWarnings(as.numeric(inkomen2022, ":")), na.rm = TRUE)
+  )
+resultaat
 ```
 
 Variable 2
 
 ```{r gen_var2}
+#gemiddelde overgewicht per jaar 
 
 ```
 
