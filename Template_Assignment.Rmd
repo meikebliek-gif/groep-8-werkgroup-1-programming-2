@@ -189,125 +189,105 @@ plot(combined$inkomen2022, combined$overgewicht2022)
 dev.off()
 ```
 
+
+
 ```{r}
-#Event associated visualized 
+
+```
+
+
+```{r loading_data}
 library(tidyverse)
-library(viridis)
-
-# 1. Volledige regio-indeling — ALLE landen uit je data
-noord <- c("Denmark", "Finland", "Sweden", "Estonia", "Latvia", "Lithuania",
-           "Iceland", "Norway")
-zuid  <- c("Greece", "Italy", "Spain", "Portugal", "Cyprus", "Malta",
-           "Croatia", "Slovenia",
-           "Bosnia and Herzegovina", "North Macedonia", "Albania", "Serbia")
-oost  <- c("Poland", "Hungary", "Czechia", "Romania", "Bulgaria", "Slovakia")
-west  <- c("Belgium", "Germany", "France", "Netherlands", "Austria",
-           "Ireland", "Luxembourg", "Switzerland")
-
-# 2. Breed -> lang, jaartal eruit, regio toekennen
-inkomen_long <- combined %>%
-  sf::st_drop_geometry() %>%
-  mutate(across(starts_with("inkomen"), as.numeric)) %>%   # <- deze regel toevoegen
-  pivot_longer(
-    cols = starts_with("inkomen"),
-    names_to = "jaar",
-    values_to = "inkomen"
-  ) %>%
-  mutate(
-    jaar = as.numeric(str_remove(jaar, "inkomen")),
-    europa_deel = case_when(
-      regio %in% noord ~ "Noord",
-      regio %in% zuid  ~ "Zuid",
-      regio %in% oost  ~ "Oost",
-      regio %in% west  ~ "West"
-    )
-  ) %>%
-  filter(!is.na(europa_deel))
-
-# 3. Mediaan inkomen per Europa-deel per jaar
-#    (mediaan i.p.v. gemiddelde: minder gevoelig voor uitschieters
-#     zoals Luxembourg en Switzerland)
-inkomen_regio <- inkomen_long %>%
-  filter(jaar >= 2006) %>%                  # 2002 weglaten: te veel gaten
-  group_by(europa_deel, jaar) %>%
-   summarise(med_inkomen = median(inkomen, na.rm = TRUE), .groups = "drop")
-
-# 4. Connected scatterplot met de schuldencrisis gemarkeerd
-ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
-                          color = europa_deel, group = europa_deel)) +
-  annotate("rect", xmin = 2010, xmax = 2012, ymin = -Inf, ymax = Inf,
-           alpha = 0.15, fill = "grey40") +
-  annotate("text", x = 2011, y = Inf, label = "Schuldencrisis",
-           vjust = 1.5, size = 3.5, color = "grey30") +
-  geom_line(linewidth = 1) +
-  geom_point(size = 2.5) +
-  scale_color_viridis(discrete = TRUE, option = "D", end = 0.9) +
-  scale_x_continuous(breaks = seq(2006, 2022, 4)) +
-  theme_minimal() +
-  labs(
-    title = "Mediaan inkomen per Europese regio (2006-2022)",
-    subtitle = "Vooral Zuid-Europa stagneert tijdens de schuldencrisis",
-    x = "Jaar",
-    y = "Mediaan inkomen (\u20ac)",
-    color = "Regio"
-  )
+dataset <- midwest
+filter(dataset, state == "IL")
 ```
 
+midwest is an example dataset included in the tidyverse package
+
+## 2.2 Provide a short summary of the dataset(s)
+De eerste dataset toont de ontwikkeling van het inkomen van de bevolking in verschillende Europese landen tussen 2002 en 2022. Over het algemeen is het inkomen in de meeste landen gestegen gedurende deze periode, hoewel de groei niet overal even sterk was. Daarnaast zijn er duidelijke verschillen zichtbaar tussen landen, wat wijst op uiteenlopende economische ontwikkelingen en welvaartsniveaus binnen Europa.
+De tweede dataset geeft informatie over het percentage van de bevolking met overgewicht in verschillende Europese landen in 2017, 2020 en 2025. De gegevens laten zien dat overgewicht in veel landen een veelvoorkomend gezondheidsprobleem is. In meerdere landen is een stijgende trend zichtbaar, wat erop wijst dat het aandeel mensen met overgewicht in de loop der jaren verder toeneemt. Hierdoor blijft overgewicht een belangrijk aandachtspunt voor de volksgezondheid in Europa.
+
 ```{r}
-#Sub-population variation visualized 
-# 1. Pakketten laden
-install.packages("viridis")   # alleen de eerste keer nodig
-library(viridis)
-library(tidyverse)            # bevat ggplot2, dplyr, tidyr
-
-# 2. Inkomensgroep aanmaken in 'combined'
-combined <- combined %>%
-  mutate(
-    inkomen2022 = as.numeric(inkomen2022),
-    groep = case_when(
-      inkomen2022 < 20000                         ~ "Arm",
-      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Midden",
-      inkomen2022 >= 60000                        ~ "Rijk"
-    )
-  )
-
-# 3. Data van breed naar lang omzetten
-boxplot_long <- combined %>%
-  select(regio, groep, overgewicht2017, overgewicht2022, overgewicht2025) %>%
-  mutate(across(starts_with("overgewicht"), as.numeric)) %>%   # <- deze regel toevoegen
-  pivot_longer(
-    cols = c(overgewicht2017, overgewicht2022, overgewicht2025),
-    names_to = "jaar",
-    values_to = "overgewicht"
-  ) %>%
-  mutate(
-    jaar = recode(jaar,
-      "overgewicht2017" = "2017",
-      "overgewicht2022" = "2022",
-      "overgewicht2025" = "2025"
-    )
-  )
-
-# 4. De boxplot
-boxplot_long %>%
-  filter(!is.na(groep)) %>%
-  mutate(groep = factor(groep, levels = c("Arm", "Midden", "Rijk"))) %>%
-  ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
-    geom_boxplot() +
-    facet_wrap(~jaar) +
-    scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
-    theme_minimal() +
-    theme(
-      legend.position = "none",
-      plot.title = element_text(size = 11)
-    ) +
-    ggtitle("overgewicht % per inkomensgroep, opgesplitst per jaar") +
-    xlab("") +
-    ylab("overgewicht %")          # <- dit zet "BMI" op de y-as
+head(dataset)
 ```
 
+In this case we see 28 variables, but we miss some information on what units they are in. We also don't know anything about the year/moment in which this data has been captured.
+
+``` r
+inline_code = TRUE
+```
+
+These are things that are usually included in the metadata of the dataset. For your project, you need to provide us with the information from your metadata that we need to understand your dataset of choice.
+
+## 2.3 Describe the type of variables included
+
+Think of things like:
+
+-   Do the variables contain health information or SES information?
+
+-   Have they been measured by interviewing individuals or is the data coming from administrative sources?
+
+*For the sake of this example, I will continue with the assignment...*
+
+# Part 3 - Quantifying
+
+## 3.1 Data cleaning
+
+Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
+
+```{r data_cleaning}
+mean(dataset$percollege)
+```
+
+Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
+
+## 3.2 Generate necessary variables
+
+Variable 1
+
+```{r gen_var1}
+#gemiddelde inkomen 
+library(sf)
+library(dplyr)
+resultaat <- combined %>%
+   st_drop_geometry() %>%
+  summarise(
+    INCgem2002 = mean(suppressWarnings(as.numeric(inkomen2002, ":")), na.rm = TRUE),
+    INCgem2006 = mean(suppressWarnings(as.numeric(inkomen2006, ":")), na.rm = TRUE),
+    INCgem2010 = mean(suppressWarnings(as.numeric(inkomen2010, ":")), na.rm = TRUE),
+    INCgem2014 = mean(suppressWarnings(as.numeric(inkomen2014, ":")), na.rm = TRUE),
+    INCgem2018 = mean(suppressWarnings(as.numeric(inkomen2018, ":")), na.rm = TRUE),
+    INCgem2022 = mean(suppressWarnings(as.numeric(inkomen2022, ":")), na.rm = TRUE)
+  )
+resultaat
+```
+
+Variable 2
+
+```{r gen_var2}
+#gemiddelde overgewicht
+library(sf)
+library(dplyr)
+resultaat <- combined %>%
+   st_drop_geometry() %>%
+  summarise(
+    OVgem2017 = mean(suppressWarnings(as.numeric(overgewicht2017, ":")), na.rm = TRUE),
+    OVgem2022 = mean(suppressWarnings(as.numeric(overgewicht2022, ":")), na.rm = TRUE),
+    OVgem2025 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
+  )
+resultaat
+```
+
+## 3.3 Visualize temporal variation
 
 ```{r}
+
+```
+
+## 3.4 Visualize spatial variation
+
+```{r visualise_map}
 #Spatial variation visualized 
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
@@ -474,107 +454,6 @@ ggplot(combined) +
   )
 ```
 
-
-```{r}
-
-```
-
-
-```{r loading_data}
-library(tidyverse)
-dataset <- midwest
-filter(dataset, state == "IL")
-```
-
-midwest is an example dataset included in the tidyverse package
-
-## 2.2 Provide a short summary of the dataset(s)
-De eerste dataset toont de ontwikkeling van het inkomen van de bevolking in verschillende Europese landen tussen 2002 en 2022. Over het algemeen is het inkomen in de meeste landen gestegen gedurende deze periode, hoewel de groei niet overal even sterk was. Daarnaast zijn er duidelijke verschillen zichtbaar tussen landen, wat wijst op uiteenlopende economische ontwikkelingen en welvaartsniveaus binnen Europa.
-De tweede dataset geeft informatie over het percentage van de bevolking met overgewicht in verschillende Europese landen in 2017, 2020 en 2025. De gegevens laten zien dat overgewicht in veel landen een veelvoorkomend gezondheidsprobleem is. In meerdere landen is een stijgende trend zichtbaar, wat erop wijst dat het aandeel mensen met overgewicht in de loop der jaren verder toeneemt. Hierdoor blijft overgewicht een belangrijk aandachtspunt voor de volksgezondheid in Europa.
-
-```{r}
-head(dataset)
-```
-
-In this case we see 28 variables, but we miss some information on what units they are in. We also don't know anything about the year/moment in which this data has been captured.
-
-``` r
-inline_code = TRUE
-```
-
-These are things that are usually included in the metadata of the dataset. For your project, you need to provide us with the information from your metadata that we need to understand your dataset of choice.
-
-## 2.3 Describe the type of variables included
-
-Think of things like:
-
--   Do the variables contain health information or SES information?
-
--   Have they been measured by interviewing individuals or is the data coming from administrative sources?
-
-*For the sake of this example, I will continue with the assignment...*
-
-# Part 3 - Quantifying
-
-## 3.1 Data cleaning
-
-Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
-
-```{r data_cleaning}
-mean(dataset$percollege)
-```
-
-Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
-
-## 3.2 Generate necessary variables
-
-Variable 1
-
-```{r gen_var1}
-#gemiddelde inkomen 
-library(sf)
-library(dplyr)
-resultaat <- combined %>%
-   st_drop_geometry() %>%
-  summarise(
-    INCgem2002 = mean(suppressWarnings(as.numeric(inkomen2002, ":")), na.rm = TRUE),
-    INCgem2006 = mean(suppressWarnings(as.numeric(inkomen2006, ":")), na.rm = TRUE),
-    INCgem2010 = mean(suppressWarnings(as.numeric(inkomen2010, ":")), na.rm = TRUE),
-    INCgem2014 = mean(suppressWarnings(as.numeric(inkomen2014, ":")), na.rm = TRUE),
-    INCgem2018 = mean(suppressWarnings(as.numeric(inkomen2018, ":")), na.rm = TRUE),
-    INCgem2022 = mean(suppressWarnings(as.numeric(inkomen2022, ":")), na.rm = TRUE)
-  )
-resultaat
-```
-
-Variable 2
-
-```{r gen_var2}
-#gemiddelde overgewicht
-library(sf)
-library(dplyr)
-resultaat <- combined %>%
-   st_drop_geometry() %>%
-  summarise(
-    OVgem2017 = mean(suppressWarnings(as.numeric(overgewicht2017, ":")), na.rm = TRUE),
-    OVgem2022 = mean(suppressWarnings(as.numeric(overgewicht2022, ":")), na.rm = TRUE),
-    OVgem2025 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
-  )
-resultaat
-```
-
-## 3.3 Visualize temporal variation
-
-```{r}
-
-```
-
-## 3.4 Visualize spatial variation
-
-```{r visualise_map}
-
-```
-
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.5 Visualize sub-population variation
@@ -582,19 +461,56 @@ Here you provide a description of why the plot above is relevant to your specifi
 What is the poverty rate by state?
 
 ```{r visualise_subpopulations}
-dataset$inmetro <- dataset$inmetro %>% as.factor()
-# Boxplot of poverty rate by state using the 'midwest' dataset
-ggplot(dataset, aes(x = inmetro, y = percadultpoverty)) +
-  geom_boxplot() +
-  labs(
-    title = "Distribution of Poverty Rates by Metropolitan status (Midwest counties)",
-    x = "Metropolitan Area",
-    y = "Poverty Rate of Adults (%)"
-  ) +
-  theme_minimal() +
-  theme(
-    legend.position = "right"
+#Sub-population variation visualized 
+# 1. Pakketten laden
+install.packages("viridis")   # alleen de eerste keer nodig
+library(viridis)
+library(tidyverse)            # bevat ggplot2, dplyr, tidyr
+
+# 2. Inkomensgroep aanmaken in 'combined'
+combined <- combined %>%
+  mutate(
+    inkomen2022 = as.numeric(inkomen2022),
+    groep = case_when(
+      inkomen2022 < 20000                         ~ "Arm",
+      inkomen2022 >= 20000 & inkomen2022 < 60000  ~ "Midden",
+      inkomen2022 >= 60000                        ~ "Rijk"
+    )
   )
+
+# 3. Data van breed naar lang omzetten
+boxplot_long <- combined %>%
+  select(regio, groep, overgewicht2017, overgewicht2022, overgewicht2025) %>%
+  mutate(across(starts_with("overgewicht"), as.numeric)) %>%   # <- deze regel toevoegen
+  pivot_longer(
+    cols = c(overgewicht2017, overgewicht2022, overgewicht2025),
+    names_to = "jaar",
+    values_to = "overgewicht"
+  ) %>%
+  mutate(
+    jaar = recode(jaar,
+      "overgewicht2017" = "2017",
+      "overgewicht2022" = "2022",
+      "overgewicht2025" = "2025"
+    )
+  )
+
+# 4. De boxplot
+boxplot_long %>%
+  filter(!is.na(groep)) %>%
+  mutate(groep = factor(groep, levels = c("Arm", "Midden", "Rijk"))) %>%
+  ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
+    geom_boxplot() +
+    facet_wrap(~jaar) +
+    scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
+    theme_minimal() +
+    theme(
+      legend.position = "none",
+      plot.title = element_text(size = 11)
+    ) +
+    ggtitle("overgewicht % per inkomensgroep, opgesplitst per jaar") +
+    xlab("") +
+    ylab("overgewicht %")          # <- dit zet "BMI" op de y-as
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
@@ -604,7 +520,67 @@ Here you provide a description of why the plot above is relevant to your specifi
 Analyze the relationship between two variables.
 
 ```{r analysis}
+#Event associated visualized 
+library(tidyverse)
+library(viridis)
 
+# 1. Volledige regio-indeling — ALLE landen uit je data
+noord <- c("Denmark", "Finland", "Sweden", "Estonia", "Latvia", "Lithuania",
+           "Iceland", "Norway")
+zuid  <- c("Greece", "Italy", "Spain", "Portugal", "Cyprus", "Malta",
+           "Croatia", "Slovenia",
+           "Bosnia and Herzegovina", "North Macedonia", "Albania", "Serbia")
+oost  <- c("Poland", "Hungary", "Czechia", "Romania", "Bulgaria", "Slovakia")
+west  <- c("Belgium", "Germany", "France", "Netherlands", "Austria",
+           "Ireland", "Luxembourg", "Switzerland")
+
+# 2. Breed -> lang, jaartal eruit, regio toekennen
+inkomen_long <- combined %>%
+  sf::st_drop_geometry() %>%
+  mutate(across(starts_with("inkomen"), as.numeric)) %>%   # <- deze regel toevoegen
+  pivot_longer(
+    cols = starts_with("inkomen"),
+    names_to = "jaar",
+    values_to = "inkomen"
+  ) %>%
+  mutate(
+    jaar = as.numeric(str_remove(jaar, "inkomen")),
+    europa_deel = case_when(
+      regio %in% noord ~ "Noord",
+      regio %in% zuid  ~ "Zuid",
+      regio %in% oost  ~ "Oost",
+      regio %in% west  ~ "West"
+    )
+  ) %>%
+  filter(!is.na(europa_deel))
+
+# 3. Mediaan inkomen per Europa-deel per jaar
+#    (mediaan i.p.v. gemiddelde: minder gevoelig voor uitschieters
+#     zoals Luxembourg en Switzerland)
+inkomen_regio <- inkomen_long %>%
+  filter(jaar >= 2006) %>%                  # 2002 weglaten: te veel gaten
+  group_by(europa_deel, jaar) %>%
+   summarise(med_inkomen = median(inkomen, na.rm = TRUE), .groups = "drop")
+
+# 4. Connected scatterplot met de schuldencrisis gemarkeerd
+ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
+                          color = europa_deel, group = europa_deel)) +
+  annotate("rect", xmin = 2010, xmax = 2012, ymin = -Inf, ymax = Inf,
+           alpha = 0.15, fill = "grey40") +
+  annotate("text", x = 2011, y = Inf, label = "Schuldencrisis",
+           vjust = 1.5, size = 3.5, color = "grey30") +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2.5) +
+  scale_color_viridis(discrete = TRUE, option = "D", end = 0.9) +
+  scale_x_continuous(breaks = seq(2006, 2022, 4)) +
+  theme_minimal() +
+  labs(
+    title = "Mediaan inkomen per Europese regio (2006-2022)",
+    subtitle = "Vooral Zuid-Europa stagneert tijdens de schuldencrisis",
+    x = "Jaar",
+    y = "Mediaan inkomen (\u20ac)",
+    color = "Regio"
+  )
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
