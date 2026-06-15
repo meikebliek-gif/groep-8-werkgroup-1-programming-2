@@ -171,7 +171,42 @@ groei_overgewicht
 ## 3.3 Visualize temporal variation
 
 ```{r}
+library(tidyr)
+library(dplyr)
+library(ggplot2)
 
+# inkomen: lang formaat + eindjaar van de periode als getal
+groei_inkomen_lang <- groei_inkomen %>%
+  pivot_longer(everything(), names_to = "periode", values_to = "groei") %>%
+  mutate(
+    variabele = "Income",
+    jaar = as.numeric(sub(".*_", "", periode))   # pakt het jaar na de laatste _
+  )
+
+# overgewicht: idem
+groei_overgewicht_lang <- groei_overgewicht %>%
+  pivot_longer(everything(), names_to = "periode", values_to = "groei") %>%
+  mutate(
+    variabele = "Overweight",
+    jaar = as.numeric(sub(".*_", "", periode))
+  )
+
+# samenvoegen
+groei_samen <- bind_rows(groei_inkomen_lang, groei_overgewicht_lang)
+
+# grafiek met lijnen
+ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  geom_hline(yintercept = 0, linewidth = 0.6, linetype = "dashed") +
+  scale_color_manual(values = c("Income" = "steelblue", "Overweight" = "darkorange")) +
+  labs(
+    title = "Growth income and overweight over time",
+    x = "Year",
+    y = "Growth (%)",
+    color = NULL
+  ) +
+  theme_minimal()
 ```
 
 ## 3.4 Visualize spatial variation
