@@ -23,7 +23,8 @@ require(yaml)
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 
-
+#introduction
+In this document, we will examine income and the percentage of overweight people across Europe. We are curious to see if a correlation can be found between a country's income and the percentage of overweight people. We started by adding two datasets, then cleaned and merged them into a single combined set. Following this, we created four graphs showing both the correlation between the two variables and the distribution of income and the percentage of overweight people across Europe.
 
 
 <<<<<<< HEAD
@@ -530,36 +531,13 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 Variable 1
 
 ```{r gen_var1}
-#gemiddelde inkomen per jaar 
-library(sf)
-library(dplyr)
-resultaat <- combined %>%
-   st_drop_geometry() %>%
-  summarise(
-    INCgem2002 = mean(suppressWarnings(as.numeric(inkomen2002, ":")), na.rm = TRUE),
-    INCgem2006 = mean(suppressWarnings(as.numeric(inkomen2006, ":")), na.rm = TRUE),
-    INCgem2010 = mean(suppressWarnings(as.numeric(inkomen2010, ":")), na.rm = TRUE),
-    INCgem2014 = mean(suppressWarnings(as.numeric(inkomen2014, ":")), na.rm = TRUE),
-    INCgem2018 = mean(suppressWarnings(as.numeric(inkomen2018, ":")), na.rm = TRUE),
-    INCgem2022 = mean(suppressWarnings(as.numeric(inkomen2022, ":")), na.rm = TRUE)
-  )
-resultaat
+
 ```
 
 Variable 2
 
 ```{r gen_var2}
-#gemiddelde overgewicht per jaar 
-library(sf)
-library(dplyr)
-resultaat <- combined %>%
-   st_drop_geometry() %>%
-  summarise(
-    OVgem2002 = mean(suppressWarnings(as.numeric(overgewicht2017, ":")), na.rm = TRUE),
-    OVgem2006 = mean(suppressWarnings(as.numeric(overgewicht2022, ":")), na.rm = TRUE),
-    OVgem2010 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
-  )
-resultaat
+
 ```
 
 ## 3.3 Visualize temporal variation
