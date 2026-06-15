@@ -258,7 +258,7 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
 ```{r}
 #Sub-population variation visualized 
 # 1. Pakketten laden
-install.packages("viridis")   # alleen de eerste keer nodig
+#install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
 library(tidyverse)            # bevat ggplot2, dplyr, tidyr
 
