@@ -556,9 +556,9 @@ library(dplyr)
 resultaat <- combined %>%
    st_drop_geometry() %>%
   summarise(
-    OVgem2002 = mean(suppressWarnings(as.numeric(overgewicht2017, ":")), na.rm = TRUE),
-    OVgem2006 = mean(suppressWarnings(as.numeric(overgewicht2022, ":")), na.rm = TRUE),
-    OVgem2010 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
+    OVgem2017 = mean(suppressWarnings(as.numeric(overgewicht2017, ":")), na.rm = TRUE),
+    OVgem2022 = mean(suppressWarnings(as.numeric(overgewicht2022, ":")), na.rm = TRUE),
+    OVgem2025 = mean(suppressWarnings(as.numeric(overgewicht2025, ":")), na.rm = TRUE)
   )
 resultaat
 ```
