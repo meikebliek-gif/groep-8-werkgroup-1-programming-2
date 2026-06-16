@@ -287,7 +287,9 @@ To visualize the spatial variation of the percentage of overweight people in var
  
 Using the "sf" and the "rnaturalearth" packages, a map of Europe was created. This map uses polygons, these are geographic boundaries of European countries. Russia was filtered to exclude it from the data, while we wanted to focus on the remaining European countries. The overweight data were then joined to the map data using the ISO codes.
 
-Next, the variable "overweight2022" was converted into a numeric format so that it could be used for visualization. The missing values were treated as NA to ensure that countries with unavailable data were displayed on the map.
+Next, the variable "overweight2022" was combined into a numeric format so that it could be used for visualization. The missing values ":" were then treated as NA to make sure that countries with unavailable data were displayed on the map. We created a choropleth map with the "ggplot2" package. In this map, each country is colored according to its percentage of overweight individuals in 2022. We used the "paletteer" package to make the countries go from a green to red color palette. Countries that do not have data, are labeled with NA and these are shown with a light grey color.
+
+
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
 #Spatial variation visualized 
