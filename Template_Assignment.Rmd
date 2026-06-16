@@ -239,7 +239,7 @@ groei_overgewicht
 ```
 
 ## 3.3 Visualize temporal variation
-
+The graphic of temporal variation contains the growth difference from the yearly net income average, and the yearly overweight percentage average. The graphic has years on the X-axis and the growth in percentage on the Y-axis. The blue line shows the income growth percentage and the orange line shows the overweight growth percentage. The graphic shows a huge growth between 2002 and 2006. After 2006 there is a huge drop til 2014 in the growth percentage. After 2014 there is a steady incline. The growth percentage never became lower than zero. When you look at the graphic of the overweight growth percentage you see that there is not much information available. Therefore there is only a small incline visible in the graphic. 
 ```{r echo=FALSE}
 library(tidyr)
 library(dplyr)
