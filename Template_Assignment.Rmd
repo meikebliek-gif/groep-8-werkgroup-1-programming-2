@@ -183,7 +183,7 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 
 Variable 1
 
-```{r gen_var1, echo=FALSE}
+```{r gen_var1, echo=FALSE, message=FALSE, warning=FALSE}
 #gemiddelde inkomen 
 library(sf)
 library(dplyr)
@@ -200,7 +200,7 @@ resultaat_inkomen <- combined %>%
 resultaat_inkomen
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 groei_inkomen <- resultaat_inkomen %>%
   mutate(
     groei_2002_2006 = (INCgem2006 - INCgem2002) / INCgem2002 * 100,
@@ -405,12 +405,11 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.5 Visualize sub-population variation
 
-What is the poverty rate by state?
 
 ```{r visualise_subpopulations, echo=FALSE, message=FALSE, warning=FALSE}
 #Sub-population variation visualized 
 # 1. Pakketten laden
-install.packages("viridis")   # alleen de eerste keer nodig
+#install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
 library(tidyverse)            # bevat ggplot2, dplyr, tidyr
 
