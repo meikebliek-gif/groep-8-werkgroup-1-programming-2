@@ -65,7 +65,7 @@ Think of things like:
 # Part 3 - Quantifying
 
 ## 3.1 Data cleaning
-In order for us to make our graphs
+In order to make our 4 graphs we first had to clean our data, our two data sets had a lot of colums with no data in it which had to be deleted, are colums also 
 
 
 ```{r include=FALSE}
