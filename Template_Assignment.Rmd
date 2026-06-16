@@ -53,14 +53,14 @@ The first dataset shows the development of population income in various European
 The second dataset provides information on the percentage of the population with overweight in various European countries in 2017, 2020, and 2025. The data show that being overweight is a common health problem in many countries. An upward trend is visible in several countries, indicating that the proportion of people with overweight continues to increase over the years. As a result, being overweight remains a major public health concern in Europe.
 
 ## 2.3 Describe the type of variables included
-De eerste dataset bevat de variabele gewicht. In deze dataset is het gewicht van verschillende landen door middel van survey onderzoeken achterhaald (Eurostat, n.d.). In deze set worden index cijfers gebruikt waarin een index cijfer van hoger dan 25 als overgewicht telt. Deze data heeft te maken met gezondheids-informatie aangezien er gemeten wordt of men gemiddeld in deze europese landen een gezond gewicht heeft. De tweede data set geeft het gemiddeld inkomen van dezelfde europese landen door de jaren heen. Deze set bevat sociaal-economische informatie aangezien er ingezoomd wordt op de welvaart van een land. Deze informatie is gebaseerd op nationale statistieken die door de landen aan Eurostat geleverd worden. Survey onderzoeken hebben hier dus geen invloed op(Eurostat, 2024).
+The first dataset contains the variable weight. In this dataset, the weight of various countries is determined through research (Eurostat, n.d.). In this set, index numbers are used in which an index number higher than 25 counts as overweight. This data relates to health information measured elsewhere, showing that men in these European countries have a healthy weight on average. The second dataset provides the average income of the same European countries over the years. This set contains socio-economic information that zooms in on the prosperity of a country. This information is based on national statistics supplied to Eurostat by the countries. Survey researchers therefore have no influence on this (Eurostat, 2024).
 
 *For the sake of this example, I will continue with the assignment...*
 
 # Part 3 - Quantifying
 
 ## 3.1 Data cleaning
-In order to make our 4 graphs we first had to clean our data, our two data sets had a lot of colums with no data in it which had to be deleted, are colums also 
+In order to make our 4 graphs we first had to clean our data, our two data sets had a lot of columns with no data in it which had to be deleted, the columns were titled by numbers we changed this to appropriate titles for the columns. The data sets also had a lot of information about Europe in general we did not need this for our graphs so we also deleted these. We also filtered 2 countries with a lot of missing data.
 
 
 ```{r include=FALSE}
@@ -284,7 +284,9 @@ To visualize the spatial variation of the percentage of overweight people in var
  
 Using the "sf" and the "rnaturalearth" packages, a map of Europe was created. This map uses polygons, these are geographic boundaries of European countries. Russia was filtered to exclude it from the data, while we wanted to focus on the remaining European countries. The overweight data were then joined to the map data using the ISO codes.
 
-Next, the variable "overweight2022" was converted into a numeric format so that it could be used for visualization. The missing values were treated as NA to ensure that countries with unavailable data were displayed on the map.
+Next, the variable "overweight2022" was combined into a numeric format so that it could be used for visualization. The missing values ":" were then treated as NA to make sure that countries with unavailable data were displayed on the map. We created a choropleth map with the "ggplot2" package. In this map, each country is colored according to its percentage of overweight individuals in 2022. We used the "paletteer" package to make the countries go from a green to red color palette. Countries that do not have data, are labeled with NA and these are shown with a light grey color.
+
+
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
 #Spatial variation visualized 
