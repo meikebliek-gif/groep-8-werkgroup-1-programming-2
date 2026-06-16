@@ -284,7 +284,7 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
 
 ## 3.4 Visualize spatial variation
 
-```{r visualise_map, echo=FALSE}
+```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 #Spatial variation visualized 
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
@@ -331,25 +331,21 @@ combined <- merge(combined, iso_tabel, by = "regio")
 # Cartography data laden
 #data(nuts2006)
 
-
-
 library(rnaturalearth)
 library(sf)
 library(dplyr)
 
 europe <- ne_countries(scale = "medium", continent = "Europe", returnclass = "sf") |>
   select(name, iso2 = iso_a2, geometry)
-europe$name[europe$iso2 == "FR"]
-
-
-head(europe)
+#europe$name[europe$iso2 == "FR"]
+#head(europe)
 # name, iso2 (bv. "NL", "DE", "FR"), geometry (MULTIPOLYGON)
 
 europe <- europe |>
   filter(!iso2 %in% c("RU")) 
 
-combined$id
-europe$iso2
+#combined$id
+#europe$iso2
 combined <- left_join(europe, combined, join_by(iso2 == id))
 
 combined_df <- st_drop_geometry(combined)
@@ -364,10 +360,6 @@ combined$overgewicht2022 <- as.numeric(combined$overgewicht2022)
 combined$overgewicht2022 <- combined$overgewicht2022 %>% 
   as.numeric()
 
-
-
-
-
 library(ggplot2)
 #ggplot(combined) +
  # geom_sf(aes(fill = overgewicht2022)) +
@@ -380,7 +372,7 @@ combined$overgewicht2022[combined$overgewicht2022 == ":"] <- NA
 
 
 library(paletteer)
-paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
+#paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
 
 library(ggplot2)
 library(paletteer)
