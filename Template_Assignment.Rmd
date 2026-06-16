@@ -409,7 +409,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 ```{r visualise_subpopulations, echo=FALSE, message=FALSE, warning=FALSE}
 #Sub-population variation visualized 
 # 1. Pakketten laden
-install.packages("viridis")   # alleen de eerste keer nodig
+#install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
 library(tidyverse)            # bevat ggplot2, dplyr, tidyr
 
