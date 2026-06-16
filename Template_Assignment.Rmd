@@ -286,6 +286,7 @@ Using the "sf" and the "rnaturalearth" packages, a map of Europe was created. Th
 
 Next, the variable "overweight2022" was combined into a numeric format so that it could be used for visualization. The missing values ":" were then treated as NA to make sure that countries with unavailable data were displayed on the map. We created a choropleth map with the "ggplot2" package. In this map, each country is colored according to its percentage of overweight individuals in 2022. We used the "paletteer" package to make the countries go from a green to red color palette. Countries that do not have data, are labeled with NA and these are shown with a light grey color.
 
+This map provides a clear overview of how overweight rates vary between countries and can support further analysis of relationships with income.
 
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
