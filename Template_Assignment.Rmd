@@ -15,7 +15,7 @@ output:
 #install.packages("rmarkdown")
 ```
 
-```{r packages}
+```{r packages, include=FALSE}
 require(tidyverse)
 require(rmarkdown)
 require(yaml)
@@ -52,7 +52,7 @@ Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 202
 The first dataset shows the development of population income in various European countries between 2002 and 2022. In general, income increased in most countries during this period, although growth was not equally strong everywhere. Additionally, clear differences are visible between countries, indicating divergent economic developments and levels of prosperity within Europe.
 The second dataset provides information on the percentage of the population with overweight in various European countries in 2017, 2020, and 2025. The data show that being overweight is a common health problem in many countries. An upward trend is visible in several countries, indicating that the proportion of people with overweight continues to increase over the years. As a result, being overweight remains a major public health concern in Europe.
 
-```{r}
+```{r include=FALSE}
 library(readr)
 overgewichtLanden <- read_csv("data/overgewichtLanden.csv")
 #View(overgewichtLanden)
@@ -199,6 +199,7 @@ resultaat_inkomen <- combined %>%
   )
 resultaat_inkomen
 ```
+
 ```{r echo=FALSE}
 groei_inkomen <- resultaat_inkomen %>%
   mutate(
@@ -228,6 +229,7 @@ resultaat_overgewicht <- combined %>%
   )
 resultaat_overgewicht
 ```
+
 ```{r echo=FALSE}
 groei_overgewicht <- resultaat_overgewicht %>%
   mutate(
