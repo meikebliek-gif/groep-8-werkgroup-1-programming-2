@@ -199,7 +199,7 @@ resultaat_inkomen <- combined %>%
   )
 resultaat_inkomen
 ```
-```{r}
+```{r echo=FALSE}
 groei_inkomen <- resultaat_inkomen %>%
   mutate(
     groei_2002_2006 = (INCgem2006 - INCgem2002) / INCgem2002 * 100,
