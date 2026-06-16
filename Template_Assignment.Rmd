@@ -284,6 +284,7 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
 
 ## 3.4 Visualize spatial variation
 To visualize the spatial variation of the percentage of overweight people in various European countries, we decided to merge the data of the overweight percentages and the data of the income in European countries. We eventually made the decision to only use the overweight percentages, while using the combined data. A table containing the ISO codes of the countries was then added to make sure that the statistical data could be linked to the geographical data.
+Using the "sf" and the "rnaturalearth" packages, a map of Europe was created. This map uses polygons, these are geographic boundaries of European countries. Russia was filterd to exclude it from the data, while we wanted to focus on the remaining European countries. The overweight data were then joined to the map data using the ISO codes.
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
 ```{r visualise_map, echo=FALSE}
