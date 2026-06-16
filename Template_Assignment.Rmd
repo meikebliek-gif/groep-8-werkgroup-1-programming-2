@@ -52,6 +52,22 @@ Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 202
 The first dataset shows the development of population income in various European countries between 2002 and 2022. In general, income increased in most countries during this period, although growth was not equally strong everywhere. Additionally, clear differences are visible between countries, indicating divergent economic developments and levels of prosperity within Europe.
 The second dataset provides information on the percentage of the population with overweight in various European countries in 2017, 2020, and 2025. The data show that being overweight is a common health problem in many countries. An upward trend is visible in several countries, indicating that the proportion of people with overweight continues to increase over the years. As a result, being overweight remains a major public health concern in Europe.
 
+## 2.3 Describe the type of variables included
+
+Think of things like:
+
+-   Do the variables contain health information or SES information?
+
+-   Have they been measured by interviewing individuals or is the data coming from administrative sources?
+
+*For the sake of this example, I will continue with the assignment...*
+
+# Part 3 - Quantifying
+
+## 3.1 Data cleaning
+
+Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
+
 ```{r include=FALSE}
 library(readr)
 overgewichtLanden <- read_csv("data/overgewichtLanden.csv")
@@ -159,22 +175,6 @@ inkomen_landen_europa <- inkomen_landen_europa %>% filter(regio != "Montenegro")
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
 ```
-
-## 2.3 Describe the type of variables included
-
-Think of things like:
-
--   Do the variables contain health information or SES information?
-
--   Have they been measured by interviewing individuals or is the data coming from administrative sources?
-
-*For the sake of this example, I will continue with the assignment...*
-
-# Part 3 - Quantifying
-
-## 3.1 Data cleaning
-
-Say we want to include only larger distances (above 2) in our dataset, we can filter for this.
 
 
 Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
