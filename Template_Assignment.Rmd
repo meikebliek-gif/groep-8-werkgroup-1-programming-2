@@ -210,7 +210,8 @@ groei_inkomen <- resultaat_inkomen %>%
 groei_inkomen
 ```
 
-Variable 2
+Variable 2:
+For the second variable, the same steps were done as in variable 1, but now the data from overweight was used. So first the average overweight percentage for all the countries was calculated for the years 2017, 2022, 2025. And then the average per year was used to calculate the growth. These calculations were also used later in the temporal variation graphic. 
 
 ```{r gen_var2, echo=FALSE}
 #gemiddelde overgewicht
@@ -238,7 +239,7 @@ groei_overgewicht
 ```
 
 ## 3.3 Visualize temporal variation
-
+The graphic of temporal variation contains the growth difference from the yearly net income average, and the yearly overweight percentage average. The graphic has years on the X-axis and the growth in percentage on the Y-axis. The blue line shows the income growth percentage and the orange line shows the overweight growth percentage. The graphic shows a huge growth between 2002 and 2006. After 2006 there is a huge drop til 2014 in the growth percentage. After 2014 there is a steady incline. The growth percentage never became lower than zero. When you look at the graphic of the overweight growth percentage you see that there is not much information available. Therefore there is only a small incline visible in the graphic. 
 ```{r echo=FALSE}
 library(tidyr)
 library(dplyr)
@@ -285,6 +286,7 @@ Using the "sf" and the "rnaturalearth" packages, a map of Europe was created. Th
 
 Next, the variable "overweight2022" was combined into a numeric format so that it could be used for visualization. The missing values ":" were then treated as NA to make sure that countries with unavailable data were displayed on the map. We created a choropleth map with the "ggplot2" package. In this map, each country is colored according to its percentage of overweight individuals in 2022. We used the "paletteer" package to make the countries go from a green to red color palette. Countries that do not have data, are labeled with NA and these are shown with a light grey color.
 
+This map provides a clear overview of how overweight rates vary between countries and can support further analysis of relationships with income.
 
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
