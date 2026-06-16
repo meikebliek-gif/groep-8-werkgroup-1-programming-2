@@ -287,8 +287,6 @@ To visualize the spatial variation of the percentage of overweight people in var
 
 <<<<<<< HEAD
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
-=======
-```{r visualise_map, echo=FALSE}
 
 >>>>>>> bc78190c48780d8ea2bdc44ed6a3af5171b7d6de
 #Spatial variation visualized 
@@ -410,7 +408,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 What is the poverty rate by state?
 
-```{r visualise_subpopulations, echo=FALSE, warning=FALSE}
+```{r visualise_subpopulations, echo=FALSE, message=FALSE, warning=FALSE}
 #Sub-population variation visualized 
 # 1. Pakketten laden
 install.packages("viridis")   # alleen de eerste keer nodig
@@ -469,7 +467,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Analyze the relationship between two variables.
 
-```{r analysis, echo=FALSE}
+```{r analysis, echo=FALSE, message=FALSE, warning=FALSE}
 #Event associated visualized 
 library(tidyverse)
 library(viridis)
