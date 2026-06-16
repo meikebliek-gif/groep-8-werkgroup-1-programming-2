@@ -53,19 +53,14 @@ The first dataset shows the development of population income in various European
 The second dataset provides information on the percentage of the population with overweight in various European countries in 2017, 2020, and 2025. The data show that being overweight is a common health problem in many countries. An upward trend is visible in several countries, indicating that the proportion of people with overweight continues to increase over the years. As a result, being overweight remains a major public health concern in Europe.
 
 ## 2.3 Describe the type of variables included
-
-Think of things like:
-
--   Do the variables contain health information or SES information?
-
--   Have they been measured by interviewing individuals or is the data coming from administrative sources?
+De eerste dataset bevat de variabele gewicht. In deze dataset is het gewicht van verschillende landen door middel van survey onderzoeken achterhaald (Eurostat, n.d.). In deze set worden index cijfers gebruikt waarin een index cijfer van hoger dan 25 als overgewicht telt. Deze data heeft te maken met gezondheids-informatie aangezien er gemeten wordt of men gemiddeld in deze europese landen een gezond gewicht heeft. De tweede data set geeft het gemiddeld inkomen van dezelfde europese landen door de jaren heen. Deze set bevat sociaal-economische informatie aangezien er ingezoomd wordt op de welvaart van een land. Deze informatie is gebaseerd op nationale statistieken die door de landen aan Eurostat geleverd worden. Survey onderzoeken hebben hier dus geen invloed op(Eurostat, 2024).
 
 *For the sake of this example, I will continue with the assignment...*
 
 # Part 3 - Quantifying
 
 ## 3.1 Data cleaning
-In order for us to make our graphs
+In order to make our 4 graphs we first had to clean our data, our two data sets had a lot of colums with no data in it which had to be deleted, are colums also 
 
 
 ```{r include=FALSE}
@@ -550,3 +545,5 @@ Provide the link to your PUBLIC repository here: ...
 Use APA referencing throughout your document.
 1. Zorginstituut Nederland. (z.d.). Obesitaszorg en zorg bij overgewicht. Geraadpleegd op 16 juni 2026, van Zorginstituut Nederland
 2. De Witte, E. (2025, 4 september). Geld maakt niet gelukkig, maar wel gezonder volgens nieuw onderzoek. Manly. https://manly.nl/verband-inkomen-gezondheid-onderzoek
+3. Eurostat. (z.d.). Health determinants (hlth_det): Reference metadata in Euro SDMX Metadata Structure (ESMS). Geraadpleegd op 16 juni 2026, van https://ec.europa.eu/eurostat/cache/metadata/en/hlth_det_esms.htm
+4. Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. Europese Commissie. https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20241107-1
