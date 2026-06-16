@@ -15,7 +15,7 @@ output:
 #install.packages("rmarkdown")
 ```
 
-```{r packages}
+```{r packages, include=FALSE}
 require(tidyverse)
 require(rmarkdown)
 require(yaml)
@@ -52,7 +52,7 @@ Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 202
 De eerste dataset toont de ontwikkeling van het inkomen van de bevolking in verschillende Europese landen tussen 2002 en 2022. Over het algemeen is het inkomen in de meeste landen gestegen gedurende deze periode, hoewel de groei niet overal even sterk was. Daarnaast zijn er duidelijke verschillen zichtbaar tussen landen, wat wijst op uiteenlopende economische ontwikkelingen en welvaartsniveaus binnen Europa.
 De tweede dataset geeft informatie over het percentage van de bevolking met overgewicht in verschillende Europese landen in 2017, 2020 en 2025. De gegevens laten zien dat overgewicht in veel landen een veelvoorkomend gezondheidsprobleem is. In meerdere landen is een stijgende trend zichtbaar, wat erop wijst dat het aandeel mensen met overgewicht in de loop der jaren verder toeneemt. Hierdoor blijft overgewicht een belangrijk aandachtspunt voor de volksgezondheid in Europa.
 
-```{r}
+```{r include=FALSE}
 library(readr)
 overgewichtLanden <- read_csv("data/overgewichtLanden.csv")
 #View(overgewichtLanden)
@@ -241,7 +241,7 @@ groei_overgewicht
 
 ## 3.3 Visualize temporal variation
 
-```{r echo=FALSE}
+```{r}
 library(tidyr)
 library(dplyr)
 library(ggplot2)
@@ -282,7 +282,7 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
 
 ## 3.4 Visualize spatial variation
 
-```{r visualise_map, echo=FALSE}
+```{r visualise_map}
 #Spatial variation visualized 
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
@@ -410,7 +410,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 What is the poverty rate by state?
 
-```{r visualise_subpopulations, echo=FALSE}
+```{r visualise_subpopulations, echo=FALSE, warning=FALSE}
 #Sub-population variation visualized 
 # 1. Pakketten laden
 install.packages("viridis")   # alleen de eerste keer nodig
@@ -469,7 +469,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Analyze the relationship between two variables.
 
-```{r analysis, echo=FALSE}
+```{r analysis}
 #Event associated visualized 
 library(tidyverse)
 library(viridis)
