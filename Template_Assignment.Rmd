@@ -288,7 +288,6 @@ To visualize the spatial variation of the percentage of overweight people in var
 <<<<<<< HEAD
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
->>>>>>> bc78190c48780d8ea2bdc44ed6a3af5171b7d6de
 #Spatial variation visualized 
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
