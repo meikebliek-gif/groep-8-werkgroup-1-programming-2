@@ -65,7 +65,7 @@ Think of things like:
 # Part 3 - Quantifying
 
 ## 3.1 Data cleaning
-In order to make our 4 graphs we first had to clean our data, our two data sets had a lot of colums with no data in it which had to be deleted, are colums also 
+In order to make our 4 graphs we first had to clean our data, our two data sets had a lot of columns with no data in it which had to be deleted, the columns were titled by numbers we changed this to appropriate titles for the columns. The data sets also had a lot of information about Europe in general we did not need this for our graphs so we also deleted these. We also filtered 2 countries with a lot of missing data.
 
 
 ```{r include=FALSE}
