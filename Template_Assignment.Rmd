@@ -210,7 +210,8 @@ groei_inkomen <- resultaat_inkomen %>%
 groei_inkomen
 ```
 
-Variable 2
+Variable 2:
+For the second variable, the same steps were done as in variable 1, but now the data from overweight was used. So first the average overweight percentage for all the countries was calculated for the years 2017, 2022, 2025. And then the average per year was used to calculate the growth. These calculations were also used later in the temporal variation graphic. 
 
 ```{r gen_var2, echo=FALSE}
 #gemiddelde overgewicht
