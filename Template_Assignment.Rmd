@@ -183,7 +183,7 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 
 Variable 1
 
-```{r gen_var1, echo=FALSE}
+```{r gen_var1, echo=FALSE, message=FALSE, warning=FALSE}
 #gemiddelde inkomen 
 library(sf)
 library(dplyr)
@@ -200,7 +200,7 @@ resultaat_inkomen <- combined %>%
 resultaat_inkomen
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 groei_inkomen <- resultaat_inkomen %>%
   mutate(
     groei_2002_2006 = (INCgem2006 - INCgem2002) / INCgem2002 * 100,
@@ -283,6 +283,7 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
 ```
 
 ## 3.4 Visualize spatial variation
+```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
 ```{r visualise_map, echo=FALSE}
 #Spatial variation visualized 
@@ -331,25 +332,21 @@ combined <- merge(combined, iso_tabel, by = "regio")
 # Cartography data laden
 #data(nuts2006)
 
-
-
 library(rnaturalearth)
 library(sf)
 library(dplyr)
 
 europe <- ne_countries(scale = "medium", continent = "Europe", returnclass = "sf") |>
   select(name, iso2 = iso_a2, geometry)
-europe$name[europe$iso2 == "FR"]
-
-
-head(europe)
+#europe$name[europe$iso2 == "FR"]
+#head(europe)
 # name, iso2 (bv. "NL", "DE", "FR"), geometry (MULTIPOLYGON)
 
 europe <- europe |>
   filter(!iso2 %in% c("RU")) 
 
-combined$id
-europe$iso2
+#combined$id
+#europe$iso2
 combined <- left_join(europe, combined, join_by(iso2 == id))
 
 combined_df <- st_drop_geometry(combined)
@@ -364,10 +361,6 @@ combined$overgewicht2022 <- as.numeric(combined$overgewicht2022)
 combined$overgewicht2022 <- combined$overgewicht2022 %>% 
   as.numeric()
 
-
-
-
-
 library(ggplot2)
 #ggplot(combined) +
  # geom_sf(aes(fill = overgewicht2022)) +
@@ -380,7 +373,7 @@ combined$overgewicht2022[combined$overgewicht2022 == ":"] <- NA
 
 
 library(paletteer)
-paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
+#paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
 
 library(ggplot2)
 library(paletteer)
@@ -410,12 +403,11 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 3.5 Visualize sub-population variation
 
-What is the poverty rate by state?
 
-```{r visualise_subpopulations, echo=FALSE, warning=FALSE}
+```{r visualise_subpopulations, echo=FALSE, message=FALSE, warning=FALSE}
 #Sub-population variation visualized 
 # 1. Pakketten laden
-install.packages("viridis")   # alleen de eerste keer nodig
+#install.packages("viridis")   # alleen de eerste keer nodig
 library(viridis)
 library(tidyverse)            # bevat ggplot2, dplyr, tidyr
 
@@ -471,7 +463,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Analyze the relationship between two variables.
 
-```{r analysis, echo=FALSE}
+```{r analysis, echo=FALSE, message=FALSE, warning=FALSE}
 #Event associated visualized 
 library(tidyverse)
 library(viridis)
