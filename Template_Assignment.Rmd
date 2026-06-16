@@ -21,13 +21,15 @@ require(rmarkdown)
 require(yaml)
 ```
 
-# Title Page
+Authors:
+'Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488'
+
+tutorial lecturer: "Chantal Schouwenaar"
 
 #introduction
 In this document, we will examine income and the percentage of overweight people across Europe. We are curious to see if a correlation can be found between a country's income and the percentage of overweight people. We started by adding two datasets, then cleaned and merged them into a single combined set. Following this, we created four graphs showing both the correlation between the two variables and the distribution of income and the percentage of overweight people across Europe.
 
 
-Include your tutorial lecturer's name: Fitzgerald, J.F.
 
 # Part 1 - Identify a Social Problem
 
@@ -36,7 +38,7 @@ Use APA referencing throughout your document. [Here's a link to some explanation
 ## 1.1 Describe the Social Problem
 sociale vraag: In welke mate beinvloedt inkomen het percentage aan mensen met overgewicht in europa?
 
-Dit is een relevant onderwerp omdat overgewicht zorgt voor gezondheidsproblemen. Door onderzoek te doen naar de correlatie tussen rijkdom en overgewicht, kunnen we beter begrijpen hoe inkomen de gezondheid in een land bepaald. Dit geeft ons een duidelijker overzicht voor de vraag of er een duidelijke geld oorzaak aanwezig is in het landelijke percentage v
+Dit is een relevant onderwerp omdat overgewicht zorgt voor gezondheidsproblemen(Zorginstituut Nederland, z.d..). Door onderzoek te doen naar de correlatie tussen rijkdom en overgewicht, kunnen we beter begrijpen hoe inkomen de gezondheid in een land bepaald. Dit geeft ons een duidelijker overzicht voor de vraag of er een duidelijke geld oorzaak aanwezig is in het landelijke percentage v
 -   ...
 
 # Part 2 - Data Sourcing
@@ -593,3 +595,4 @@ Provide the link to your PUBLIC repository here: ...
 ## 5.2 Reference list
 
 Use APA referencing throughout your document.
+1. Zorginstituut Nederland. (z.d.). Obesitaszorg en zorg bij overgewicht. Geraadpleegd op 16 juni 2026, van Zorginstituut Nederland
