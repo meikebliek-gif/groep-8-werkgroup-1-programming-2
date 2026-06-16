@@ -176,7 +176,8 @@ Please use a separate 'R block' of code for each type of cleaning. So, e.g. one 
 
 ## 3.2 Generate necessary variables
 
-Variable 1
+Variable 1: 
+For the first variable the average net yearly income per person for all the countries concluded in the dataset, was calculated. In the dataset we had the years 2002, 2006, 2010, 2014, 2018, 2022 included. After the calculations, there was an overview of the average net income per year. With these averages, the growth per was calculated. These calculations were later used in the temporal variation.
 
 ```{r gen_var1, echo=FALSE, message=FALSE, warning=FALSE}
 #gemiddelde inkomen 
