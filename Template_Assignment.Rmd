@@ -241,7 +241,7 @@ groei_overgewicht
 
 ## 3.3 Visualize temporal variation
 
-```{r}
+```{r echo=FALSE}
 library(tidyr)
 library(dplyr)
 library(ggplot2)
@@ -282,7 +282,7 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
 
 ## 3.4 Visualize spatial variation
 
-```{r visualise_map}
+```{r visualise_map, echo=FALSE}
 #Spatial variation visualized 
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
@@ -410,7 +410,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 What is the poverty rate by state?
 
-```{r visualise_subpopulations}
+```{r visualise_subpopulations, echo=FALSE}
 #Sub-population variation visualized 
 # 1. Pakketten laden
 install.packages("viridis")   # alleen de eerste keer nodig
@@ -469,7 +469,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Analyze the relationship between two variables.
 
-```{r analysis}
+```{r analysis, echo=FALSE}
 #Event associated visualized 
 library(tidyverse)
 library(viridis)
