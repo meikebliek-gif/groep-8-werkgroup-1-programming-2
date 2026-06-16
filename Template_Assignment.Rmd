@@ -21,15 +21,13 @@ require(rmarkdown)
 require(yaml)
 ```
 
-Authors:
-'Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488'
-
-tutorial lecturer: "Chantal Schouwenaar"
+# Title Page
 
 #introduction
 In this document, we will examine income and the percentage of overweight people across Europe. We are curious to see if a correlation can be found between a country's income and the percentage of overweight people. We started by adding two datasets, then cleaned and merged them into a single combined set. Following this, we created four graphs showing both the correlation between the two variables and the distribution of income and the percentage of overweight people across Europe.
 
 
+Include your tutorial lecturer's name: Fitzgerald, J.F.
 
 # Part 1 - Identify a Social Problem
 
@@ -201,7 +199,7 @@ resultaat_inkomen <- combined %>%
   )
 resultaat_inkomen
 ```
-```{r echo=FALSE}
+```{r}
 groei_inkomen <- resultaat_inkomen %>%
   mutate(
     groei_2002_2006 = (INCgem2006 - INCgem2002) / INCgem2002 * 100,
@@ -243,7 +241,7 @@ groei_overgewicht
 
 ## 3.3 Visualize temporal variation
 
-```{r echo=FALSE}
+```{r}
 library(tidyr)
 library(dplyr)
 library(ggplot2)
@@ -284,7 +282,7 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
 
 ## 3.4 Visualize spatial variation
 
-```{r visualise_map, echo=FALSE}
+```{r visualise_map}
 #Spatial variation visualized 
 combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
@@ -293,32 +291,7 @@ combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 library(cartography)
 library(sp)
 
-# Upload data attached with the package.
-#data(nuts2006)
 
-# Now we have a geospatial object called nuts2.spdf containing the shape of european regions. We can plot it with the plot function.
-# summary(nuts2.spdf)
-
-# We also have a dataframe with information concerning every region.
-# head(nuts2.df)
-# Both object have a first column "id" that makes the link between them.
-
-# Plot Europe
-#plot(nuts0.spdf, border = NA, col = NA, bg = "#A6CAE0")
-#plot(world.spdf, col = "#E3DEBF", border = NA, add = TRUE)
-#plot(nuts0.spdf, col = "#D1914D", border = "grey80",  add = TRUE)
-
-# Add circles proportional to the total population
-# propSymbolsLayer(spdf = nuts0.spdf, df = nuts0.df,
-#     var = "pop2008", symbols = "circle", col = "#920000",
-#     legend.pos = "right", legend.title.txt = "Total\npopulation (2008)",
-#     legend.style = "c")
-# 
-# # Add titles, legend...
-# layoutLayer(title = "Countries Population in Europe",
-#     author = "cartography", sources = "Eurostat, 2008",
-#     scale = NULL, south = TRUE)
-# 
 
 library(cartography)
 library(sp)
@@ -389,34 +362,14 @@ combined$overgewicht2022 <- as.numeric(combined$overgewicht2022)
 combined$overgewicht2022 <- combined$overgewicht2022 %>% 
   as.numeric()
 
-# hieronder komt ggplot code
-#plot(nuts0.spdf,
-#     border = "grey70",
-#     col = "white")
-
-
-# layoutLayer(
-#   title = "Overgewicht per Europees land (2022)",
-#   sources = "Eurostat",
-#   author = "Jullie namen"
-# )
-# choroLayer(
-#   spdf = nuts0.spdf,
-#   df = combined,
-#   var = "overgewicht2022",
-#   col = carto.pal(pal1 = "orange.pal"),
-#   border = "grey50",
-#   legend.pos = "right",
-#   legend.title.txt = "Overgewicht (%) 2022"
-# )
 
 
 
 
 library(ggplot2)
-ggplot(combined) +
-  geom_sf(aes(fill = overgewicht2022)) +
-  theme_void()
+#ggplot(combined) +
+ # geom_sf(aes(fill = overgewicht2022)) +
+ # theme_void()
 
 
 filter(combined, combined$overgewicht2022 == ":")
@@ -457,7 +410,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 What is the poverty rate by state?
 
-```{r visualise_subpopulations, echo=FALSE}
+```{r visualise_subpopulations}
 #Sub-population variation visualized 
 # 1. Pakketten laden
 install.packages("viridis")   # alleen de eerste keer nodig
@@ -516,7 +469,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 Analyze the relationship between two variables.
 
-```{r analysis, echo=FALSE}
+```{r analysis}
 #Event associated visualized 
 library(tidyverse)
 library(viridis)
