@@ -219,10 +219,6 @@ combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 ```
 
 ## 3.2 Generate necessary variables
-
-<<<<<<< Updated upstream
-Variable 1: For the first variable the average net yearly income per person for all the countries concluded in the dataset, was calculated. In the dataset we had the years 2002, 2006, 2010, 2014, 2018, 2022 included. After the calculations, there was an overview of the average net income per year. With these averages, the growth per was calculated. These calculations were later used in the temporal variation.
-
 Variable 1: For the first variable the average net yearly income per
 person for all the countries concluded in the dataset, was calculated.
 In the dataset we had the years 2002, 2006, 2010, 2014, 2018, 2022
@@ -260,9 +256,6 @@ groei_inkomen <- resultaat_inkomen %>%
 
 groei_inkomen
 ```
-
-<<<<<<< Updated upstream
-Variable 2: For the second variable, the same steps were done as in variable 1, but now the data from overweight was used. So first the average overweight percentage for all the countries was calculated for the years 2017, 2022, 2025. And then the average per year was used to calculate the growth. These calculations were also used later in the temporal variation graphic.
 
 Variable 2: For the second variable, the same steps were done as in
 variable 1, but now the data from overweight was used. So first the
@@ -540,7 +533,6 @@ For the graph, we divided the 2022 income data into three subgroups:
 lower, middle, and upper income. We then compared these income groups
 with the percentage of overweight in each group. The black dots on the
 graph indicate the outliers in the dataset.
->>>>>>> Stashed changes
 
 ## 3.6 Event analysis
 
