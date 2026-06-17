@@ -32,12 +32,6 @@ Anne Mak: 2898488'"
 Tutorial lecturer's name: Chantal Schouwenaar
 
 
-# Part 1 - Identify a Social Problem
-
-## 1.1 Describe the Social Problem
-
-
-
 In this document, we will examine income and the percentage of
 overweight people across Europe. We are curious to see if a correlation
 can be found between a country's income and the percentage of overweight
@@ -46,6 +40,7 @@ into a single combined set. Following this, we created four graphs
 showing both the correlation between the two variables and the
 distribution of income and the percentage of overweight people across
 Europe.
+
 
 # Part 1 - Identify a Social Problem
 
