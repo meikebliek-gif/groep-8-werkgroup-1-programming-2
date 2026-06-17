@@ -37,8 +37,7 @@ In this document, we will examine income and the percentage of overweight people
 ## 1.1 Describe the Social Problem
 Social question: To what extent does income influence the percentage of overweight people in Europe?
 
-This is a relevant topic because being overweight causes health problems (Zorginstituut Nederland, n.d.). By researching the correlation between wealth and being overweight, we can better understand how income determines health in a country. This gives us a clearer overview of whether there is a clear monetary cause in the national percentage of people who are overweight. We assume in advance that a high income enables men to eat more healthily and can thus largely prevent being overweight (De Witte, 2025).. 
--   ...
+This is a relevant topic because being overweight causes health problems (Zorginstituut Nederland, n.d.). By researching the correlation between wealth and being overweight, we can better understand how income determines health in a country. This gives us a clearer overview of whether there is a clear monetary cause in the national percentage of people who are overweight. We assume in advance that a high income enables men to eat more healthily and can thus largely prevent being overweight (De Witte, 2025).
 
 # Part 2 - Data Sourcing
 
