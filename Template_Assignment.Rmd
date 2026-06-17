@@ -460,7 +460,7 @@ boxplot_long %>%
     ylab("Population that is overweight %")          # <- dit zet "Overweight %" op de y-as
 ```
 
-Here you provide a description of why the plot above is relevant to your specific social problem.
+For the graph, we divided the 2022 income data into three subgroups: lower, middle, and upper income. We then compared these income groups with the percentage of overweight in each group. The black dots on the graph indicate the outliers in the dataset. 
 
 ## 3.6 Event analysis
 
