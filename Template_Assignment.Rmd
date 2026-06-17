@@ -540,7 +540,7 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
 
 ## 5.1 Github repository link
 
-Provide the link to your PUBLIC repository here: ...
+https://github.com/meikebliek-gif/groep-8-werkgroup-1-programming-2 
 
 ## 5.2 Reference list
 
