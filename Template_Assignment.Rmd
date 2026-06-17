@@ -1,12 +1,11 @@
 ---
 title: "Hoe zwaar weegt welvaart"
-author: "'''Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702,"
-  Nynke Latham: 2862763, Anne Mak: 2898488'''
+author: "Tutorial 1 Group 8"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 # Set-up your environment
