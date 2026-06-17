@@ -25,7 +25,6 @@ require(rmarkdown)
 require(yaml)
 ```
 
-<<<<<<< Updated upstream
 Title: "Hoe zwaar weegt welvaart" author: "'Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488'"
 
 Tutorial lecturer's name: Chantal Schouwenaar
@@ -72,7 +71,7 @@ overweight (De Witte, 2025).
 
 ## 2.1 Load in the data
 
-<<<<<<< Updated upstream
+
 Eurostat. (n.d.). Obesity rate by body mass index (BMI) (sdg_02_10) [Data set]. Geraadpleegd op 2 juni 2026, van <https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en>
 
 Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. European Commission. <https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/DDN-20241107-1>
