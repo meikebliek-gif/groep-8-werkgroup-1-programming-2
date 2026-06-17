@@ -1,8 +1,10 @@
 ---
 title: "Hoe zwaar weegt welvaart"
-author: "'Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488'"
+author: "'''Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702,"
+  Nynke Latham: 2862763, Anne Mak: 2898488'''
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 ---
@@ -532,7 +534,8 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
 # Part 4 - Discussion
 
 ## 4.1 Discuss your findings
-
+This report examined the relationship between income and the percentage of overweight people in European countries. Using Eurostat data, we analyzed both variables over time and across different regions of Europe. The visualizations showed clear differences between European countries and income groups, supporting the idea that lower levels of prosperity are associated with a greater risk of being overweight. A possible explanation is that people with lower incomes often have less access to healthy food, sports facilities, and other resources that support a healthy lifestyle. 
+In short, the findings suggest that lower income is related with larger levels of overweight in Europe, making economic inequality an crucial factor in acknowledging this public health issue. 
 # Part 5 - Reproducibility
 
 ## 5.1 Github repository link
