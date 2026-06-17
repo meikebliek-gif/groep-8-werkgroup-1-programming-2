@@ -238,7 +238,7 @@ groei_overgewicht
 ```
 
 ## 3.3 Visualize temporal variation
-The graphic of temporal variation contains the growth difference from the yearly net income average, and the yearly overweight percentage average. The graphic has years on the X-axis and the growth in percentage on the Y-axis. The blue line shows the income growth percentage and the orange line shows the overweight growth percentage. The graphic shows a huge growth between 2002 and 2006. After 2006 there is a huge drop til 2014 in the growth percentage. After 2014 there is a steady incline. The growth percentage never became lower than zero. When you look at the graphic of the overweight growth percentage you see that there is not much information available. Therefore there is only a small incline visible in the graphic. 
+
 ```{r echo=FALSE}
 library(tidyr)
 library(dplyr)
@@ -277,15 +277,9 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
   ) +
   theme_minimal()
 ```
-
+The graphic of temporal variation contains the growth difference from the yearly net income average, and the yearly overweight percentage average. The graphic has years on the X-axis and the growth in percentage on the Y-axis. The blue line shows the income growth percentage and the orange line shows the overweight growth percentage. The graphic shows a huge growth between 2002 and 2006. After 2006 there is a huge drop til 2014 in the growth percentage. After 2014 there is a steady incline. The growth percentage never became lower than zero. When you look at the graphic of the overweight growth percentage you see that there is not much information available. Therefore there is only a small incline visible in the graphic. 
 ## 3.4 Visualize spatial variation
-To visualize the spatial variation of the percentage of overweight people in various European countries, we decided to merge the data of the overweight percentages and the data of the income in European countries. We eventually made the decision to only use the overweight percentages, while using the combined data. A table containing the ISO codes of the countries was then added to make sure that the statistical data could be linked to the geographical data.
- 
-Using the "sf" and the "rnaturalearth" packages, a map of Europe was created. This map uses polygons, these are geographic boundaries of European countries. Russia was filtered to exclude it from the data, while we wanted to focus on the remaining European countries. The overweight data were then joined to the map data using the ISO codes.
 
-Next, the variable "overweight2022" was combined into a numeric format so that it could be used for visualization. The missing values ":" were then treated as NA to make sure that countries with unavailable data were displayed on the map. We created a choropleth map with the "ggplot2" package. In this map, each country is colored according to its percentage of overweight individuals in 2022. We used the "paletteer" package to make the countries go from a green to red color palette. Countries that do not have data, are labeled with NA and these are shown with a light grey color.
-
-This map provides a clear overview of how overweight rates vary between countries and can support further analysis of relationships with income.
 
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -402,10 +396,16 @@ ggplot(combined) +
   )
 ```
 
-Here you provide a description of why the plot above is relevant to your specific social problem.
+To visualize the spatial variation of the percentage of overweight people in various European countries, we decided to merge the data of the overweight percentages and the data of the income in European countries. We eventually made the decision to only use the overweight percentages, while using the combined data. A table containing the ISO codes of the countries was then added to make sure that the statistical data could be linked to the geographical data.
+ 
+Using the "sf" and the "rnaturalearth" packages, a map of Europe was created. This map uses polygons, these are geographic boundaries of European countries. Russia was filtered to exclude it from the data, while we wanted to focus on the remaining European countries. The overweight data were then joined to the map data using the ISO codes.
+
+Next, the variable "overweight2022" was combined into a numeric format so that it could be used for visualization. The missing values ":" were then treated as NA to make sure that countries with unavailable data were displayed on the map. We created a choropleth map with the "ggplot2" package. In this map, each country is colored according to its percentage of overweight individuals in 2022. We used the "paletteer" package to make the countries go from a green to red color palette. Countries that do not have data, are labeled with NA and these are shown with a light grey color.
+
+This map provides a clear overview of how overweight rates vary between countries and can support further analysis of relationships with income.
 
 # 3.5 Visualize sub-population variation
-To visualize sub-population differences between lower, middle and upper class we divided our data set in income in 3 groups by income. afterwords we 
+
 
 ```{r visualise_subpopulations, echo=FALSE, message=FALSE, warning=FALSE}
 #Sub-population variation visualized 
@@ -463,7 +463,7 @@ boxplot_long %>%
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
-For the event analysis we analyzed the debt crisis from 2008 and 2009. It was said that the debt crisis influenced the southern European  countries the most, this is noticeable in the graphic, for the southern countries the income rise is lower than for the other regions. The eastern and western region of Europe had a very high rise of income, whilst the northern had a small rise, and the southern an even smaller rise of income. 
+
 
 ```{r analysis, echo=FALSE, message=FALSE, warning=FALSE}
 #Event associated visualized 
@@ -528,7 +528,7 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
     color = "Region"
   )
 ```
-
+For the event analysis we analyzed the debt crisis from 2008 and 2009. It was said that the debt crisis influenced the southern European  countries the most, this is noticeable in the graphic, for the southern countries the income rise is lower than for the other regions. The eastern and western region of Europe had a very high rise of income, whilst the northern had a small rise, and the southern an even smaller rise of income.
 
 # Part 4 - Discussion
 
