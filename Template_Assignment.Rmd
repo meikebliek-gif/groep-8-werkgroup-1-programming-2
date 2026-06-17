@@ -1,8 +1,10 @@
 ---
 title: "Hoe zwaar weegt welvaart"
-author: "'Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488'"
+author: "'''Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702,"
+  Nynke Latham: 2862763, Anne Mak: 2898488'''
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 ---
@@ -23,7 +25,7 @@ require(yaml)
 
 title: "Hoe zwaar weegt welvaart"
 author: "'Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488'"
-Include your tutorial lecturer's name: Fitzgerald, J.F.
+Include your tutorial lecturer's name: Chantal Schouwenaar 
 
 #introduction
 In this document, we will examine income and the percentage of overweight people across Europe. We are curious to see if a correlation can be found between a country's income and the percentage of overweight people. We started by adding two datasets, then cleaned and merged them into a single combined set. Following this, we created four graphs showing both the correlation between the two variables and the distribution of income and the percentage of overweight people across Europe.
@@ -35,8 +37,7 @@ In this document, we will examine income and the percentage of overweight people
 ## 1.1 Describe the Social Problem
 Social question: To what extent does income influence the percentage of overweight people in Europe?
 
-This is a relevant topic because being overweight causes health problems (Zorginstituut Nederland, n.d.). By researching the correlation between wealth and being overweight, we can better understand how income determines health in a country. This gives us a clearer overview of whether there is a clear monetary cause in the national percentage of people who are overweight. We assume in advance that a high income enables men to eat more healthily and can thus largely prevent being overweight (De Witte, 2025).. 
--   ...
+This is a relevant topic because being overweight causes health problems (Zorginstituut Nederland, n.d.). By researching the correlation between wealth and being overweight, we can better understand how income determines health in a country. This gives us a clearer overview of whether there is a clear monetary cause in the national percentage of people who are overweight. We assume in advance that a high income enables men to eat more healthily and can thus largely prevent being overweight (De Witte, 2025).
 
 # Part 2 - Data Sourcing
 
@@ -54,7 +55,6 @@ The second dataset provides information on the percentage of the population with
 ## 2.3 Describe the type of variables included
 The first dataset contains the variable weight. In this dataset, the weight of various countries is determined through research (Eurostat, n.d.). In this set, index numbers are used in which an index number higher than 25 counts as overweight. This data relates to health information measured elsewhere, showing that men in these European countries have a healthy weight on average. The second dataset provides the average income of the same European countries over the years. This set contains socio-economic information that zooms in on the prosperity of a country. This information is based on national statistics supplied to Eurostat by the countries. Survey researchers therefore have no influence on this (Eurostat, 2024).
 
-*For the sake of this example, I will continue with the assignment...*
 
 # Part 3 - Quantifying
 
@@ -533,7 +533,8 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
 # Part 4 - Discussion
 
 ## 4.1 Discuss your findings
-
+This report examined the relationship between income and the percentage of overweight people in European countries. Using Eurostat data, we analyzed both variables over time and across different regions of Europe. The visualizations showed clear differences between European countries and income groups, supporting the idea that lower levels of prosperity are associated with a greater risk of being overweight. A possible explanation is that people with lower incomes often have less access to healthy food, sports facilities, and other resources that support a healthy lifestyle. 
+In short, the findings suggest that lower income is related with larger levels of overweight in Europe, making economic inequality an crucial factor in acknowledging this public health issue. 
 # Part 5 - Reproducibility
 
 ## 5.1 Github repository link
