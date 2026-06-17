@@ -36,25 +36,18 @@ In this document, we will examine income and the percentage of overweight people
 ## 1.1 Describe the Social Problem
 
 Social question: To what extent does income influence the percentage of overweight people in Europe?
-=======
+
 title: "Hoe zwaar weegt welvaart" author: "'Tobias Pierik: 2898032,
 Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763,
 Anne Mak: 2898488'" Tutorial lecturer's name: Chantal Schouwenaar
 
-#introduction In this document, we will examine income and the
-percentage of overweight people across Europe. We are curious to see if
-a correlation can be found between a country's income and the percentage
-of overweight people. We started by adding two datasets, then cleaned
-and merged them into a single combined set. Following this, we created
-four graphs showing both the correlation between the two variables and
-the distribution of income and the percentage of overweight people
+#introduction 
+In this document, we will examine income and the percentage of overweight people across Europe. We are curious to see if a correlation can be found between a country's income and the percentage of overweight people. We started by adding two datasets, then cleaned and merged them into a single combined set. Following this, we created four graphs showing both the correlation between the two variables and the distribution of income and the percentage of overweight people
 across Europe.
 
 # Part 1 - Identify a Social Problem
 
 ## 1.1 Describe the Social Problem
->>>>>>> Stashed changes
-
 Social question: To what extent does income influence the percentage of
 overweight people in Europe?
 
@@ -70,27 +63,9 @@ overweight (De Witte, 2025).
 # Part 2 - Data Sourcing
 
 ## 2.1 Load in the data
-
-
 Eurostat. (n.d.). Obesity rate by body mass index (BMI) (sdg_02_10) [Data set]. Geraadpleegd op 2 juni 2026, van <https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en>
 
 Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. European Commission. <https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/DDN-20241107-1>
-
-## 2.2 Provide a short summary of the dataset(s)
-
-The first dataset shows the development of population income in various European countries between 2002 and 2022. In general, income increased in most countries during this period, although growth was not equally strong everywhere. Additionally, clear differences are visible between countries, indicating divergent economic developments and levels of prosperity within Europe. The second dataset provides information on the percentage of the population with overweight in various European countries in 2017, 2020, and 2025. The data show that being overweight is a common health problem in many countries. An upward trend is visible in several countries, indicating that the proportion of people with overweight continues to increase over the years. As a result, being overweight remains a major public health concern in Europe.
-
-## 2.3 Describe the type of variables included
-
-The first dataset contains the variable weight. In this dataset, the weight of various countries is determined through research (Eurostat, n.d.). In this set, index numbers are used in which an index number higher than 25 counts as overweight. This data relates to health information measured elsewhere, showing that men in these European countries have a healthy weight on average. The second dataset provides the average income of the same European countries over the years. This set contains socio-economic information that zooms in on the prosperity of a country. This information is based on national statistics supplied to Eurostat by the countries. Survey researchers therefore have no influence on this (Eurostat, 2024).
-=======
-Eurostat. (n.d.). Obesity rate by body mass index (BMI) (sdg_02_10)
-[Data set]. Geraadpleegd op 2 juni 2026, van
-<https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en>
-
-Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU
-grew in 2023. European Commission.
-<https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/DDN-20241107-1>
 
 ## 2.2 Provide a short summary of the dataset(s)
 
@@ -120,15 +95,11 @@ set contains socio-economic information that zooms in on the prosperity
 of a country. This information is based on national statistics supplied
 to Eurostat by the countries. Survey researchers therefore have no
 influence on this (Eurostat, 2024).
->>>>>>> Stashed changes
 
 # Part 3 - Quantifying
 
 ## 3.1 Data cleaning
 
-<<<<<<< Updated upstream
-In order to create our four graphs, we first had to clean our data. Both data sets contained many columns with no data, which we removed. The remaining columns were titled by numbers, so we renamed them with appropriate titles. The data sets also included a lot of general information about Europe as a whole, which was not relevant for our graphs and was therefore removed. Additionally, we excluded two countries with a large amount of missing data. Finally, we combined the two data sets by region. Later, when generating new variables, we assigned NA to the entries with missing data.
-=======
 In order to create our four graphs, we first had to clean our data. Both
 data sets contained many columns with no data, which we removed. The
 remaining columns were titled by numbers, so we renamed them with
@@ -138,7 +109,6 @@ graphs and was therefore removed. Additionally, we excluded two
 countries with a large amount of missing data. Finally, we combined the
 two data sets by region. Later, when generating new variables, we
 assigned NA to the entries with missing data.
->>>>>>> Stashed changes
 
 ```{r include=FALSE}
 library(readr)
@@ -252,14 +222,13 @@ combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 
 <<<<<<< Updated upstream
 Variable 1: For the first variable the average net yearly income per person for all the countries concluded in the dataset, was calculated. In the dataset we had the years 2002, 2006, 2010, 2014, 2018, 2022 included. After the calculations, there was an overview of the average net income per year. With these averages, the growth per was calculated. These calculations were later used in the temporal variation.
-=======
+
 Variable 1: For the first variable the average net yearly income per
 person for all the countries concluded in the dataset, was calculated.
 In the dataset we had the years 2002, 2006, 2010, 2014, 2018, 2022
 included. After the calculations, there was an overview of the average
 net income per year. With these averages, the growth per was calculated.
 These calculations were later used in the temporal variation.
->>>>>>> Stashed changes
 
 ```{r gen_var1, echo=FALSE, message=FALSE, warning=FALSE}
 #gemiddelde inkomen 
@@ -294,14 +263,13 @@ groei_inkomen
 
 <<<<<<< Updated upstream
 Variable 2: For the second variable, the same steps were done as in variable 1, but now the data from overweight was used. So first the average overweight percentage for all the countries was calculated for the years 2017, 2022, 2025. And then the average per year was used to calculate the growth. These calculations were also used later in the temporal variation graphic.
-=======
+
 Variable 2: For the second variable, the same steps were done as in
 variable 1, but now the data from overweight was used. So first the
 average overweight percentage for all the countries was calculated for
 the years 2017, 2022, 2025. And then the average per year was used to
 calculate the growth. These calculations were also used later in the
 temporal variation graphic.
->>>>>>> Stashed changes
 
 ```{r gen_var2, echo=FALSE}
 #gemiddelde overgewicht
@@ -369,21 +337,9 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
   theme_minimal()
 ```
 
-<<<<<<< Updated upstream
-The graphic of temporal variation contains the growth difference from the yearly net income average, and the yearly overweight percentage average. The graphic has years on the X-axis and the growth in percentage on the Y-axis. The blue line shows the income growth percentage and the orange line shows the overweight growth percentage. The graphic shows a huge growth between 2002 and 2006. After 2006 there is a huge drop til 2014 in the growth percentage. After 2014 there is a steady incline. The growth percentage never became lower than zero. When you look at the graphic of the overweight growth percentage you see that there is not much information available. Therefore there is only a small incline visible in the graphic. \## 3.4 Visualize spatial variation
-=======
-The graphic of temporal variation contains the growth difference from
-the yearly net income average, and the yearly overweight percentage
-average. The graphic has years on the X-axis and the growth in
-percentage on the Y-axis. The blue line shows the income growth
-percentage and the orange line shows the overweight growth percentage.
-The graphic shows a huge growth between 2002 and 2006. After 2006 there
-is a huge drop til 2014 in the growth percentage. After 2014 there is a
-steady incline. The growth percentage never became lower than zero. When
-you look at the graphic of the overweight growth percentage you see that
-there is not much information available. Therefore there is only a small
-incline visible in the graphic. \## 3.4 Visualize spatial variation
->>>>>>> Stashed changes
+The graphic of temporal variation contains the growth difference from the yearly net income average, and the yearly overweight percentage average. The graphic has years on the X-axis and the growth in percentage on the Y-axis. The blue line shows the income growth percentage and the orange line shows the overweight growth percentage. The graphic shows a huge growth between 2002 and 2006. After 2006 there is a huge drop til 2014 in the growth percentage. After 2014 there is a steady incline. The growth percentage never became lower than zero. When you look at the graphic of the overweight growth percentage you see that there is not much information available. Therefore there is only a small incline visible in the graphic. 
+
+## 3.4 Visualize spatial variation
 
 ```{r visualise_map, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -500,11 +456,6 @@ ggplot(combined) +
   )
 ```
 
-<<<<<<< Updated upstream
-To visualize the spatial variation of the percentage of overweight people in various European countries, we decided to merge the data of the overweight percentages and the data of the income in European countries. We eventually made the decision to only use the overweight percentages, while using the combined data. A table containing the ISO codes of the countries was then added to make sure that the statistical data could be linked to the geographical data.
-
-Using the "sf" and the "rnaturalearth" packages, a map of Europe was created. This map uses polygons, these are geographic boundaries of European countries. Russia was filtered to exclude it from the data, while we wanted to focus on the remaining European countries. The overweight data were then joined to the map data using the ISO codes.
-=======
 To visualize the spatial variation of the percentage of overweight
 people in various European countries, we decided to merge the data of
 the overweight percentages and the data of the income in European
@@ -512,7 +463,6 @@ countries. We eventually made the decision to only use the overweight
 percentages, while using the combined data. A table containing the ISO
 codes of the countries was then added to make sure that the statistical
 data could be linked to the geographical data.
->>>>>>> Stashed changes
 
 Using the "sf" and the "rnaturalearth" packages, a map of Europe was
 created. This map uses polygons, these are geographic boundaries of
@@ -530,8 +480,6 @@ package to make the countries go from a green to red color palette.
 Countries that do not have data, are labeled with NA and these are shown
 with a light grey color.
 
-This map provides a clear overview of how overweight rates vary between
-countries and can support further analysis of relationships with income.
 
 # 3.5 Visualize sub-population variation
 
@@ -588,9 +536,6 @@ boxplot_long %>%
     ylab("Population that is overweight %")          # <- dit zet "Overweight %" op de y-as
 ```
 
-<<<<<<< Updated upstream
-For the graph, we divided the 2022 income data into three subgroups: lower, middle, and upper income. We then compared these income groups with the percentage of overweight in each group. The black dots on the graph indicate the outliers in the dataset.
-=======
 For the graph, we divided the 2022 income data into three subgroups:
 lower, middle, and upper income. We then compared these income groups
 with the percentage of overweight in each group. The black dots on the
@@ -663,9 +608,6 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
   )
 ```
 
-<<<<<<< Updated upstream
-For the event analysis we analyzed the debt crisis from 2008 and 2009. It was said that the debt crisis influenced the southern European countries the most, this is noticeable in the graphic, for the southern countries the income rise is lower than for the other regions. The eastern and western region of Europe had a very high rise of income, whilst the northern had a small rise, and the southern an even smaller rise of income.
-=======
 For the event analysis we analyzed the debt crisis from 2008 and 2009.
 It was said that the debt crisis influenced the southern European
 countries the most, this is noticeable in the graphic, for the southern
@@ -673,17 +615,10 @@ countries the income rise is lower than for the other regions. The
 eastern and western region of Europe had a very high rise of income,
 whilst the northern had a small rise, and the southern an even smaller
 rise of income.
->>>>>>> Stashed changes
 
 # Part 4 - Discussion
 
 ## 4.1 Discuss your findings
-<<<<<<< Updated upstream
-
-This report studied the relationship between income and the percentage of overweight people in European countries. Using data from Eurostat, we analyzed the data over time and across Europe. The observations of our data showed us clear differences between European countries. This confirms the widely held observation that poor economic conditions are associated with a greater risk of overweight. A possible explanation might be that people with lower incomes often have less access to healthy food, sports facilities, and other resources that support a healthy lifestyle.
-=======
->>>>>>> Stashed changes
-
 This report studied the relationship between income and the percentage
 of overweight people in European countries. Using data from Eurostat, we
 analyzed the data over time and across Europe. The observations of our
@@ -705,10 +640,6 @@ factor in acknowledging this public health issue.
 <https://github.com/meikebliek-gif/groep-8-werkgroup-1-programming-2>
 
 ## 5.2 Reference list
-
-<<<<<<< Updated upstream
-Use APA referencing throughout your document. 1. Zorginstituut Nederland. (z.d.). Obesitaszorg en zorg bij overgewicht. Geraadpleegd op 16 juni 2026, van Zorginstituut Nederland 2. De Witte, E. (2025, 4 september). Geld maakt niet gelukkig, maar wel gezonder volgens nieuw onderzoek. Manly. <https://manly.nl/verband-inkomen-gezondheid-onderzoek> 3. Eurostat. (z.d.). Health determinants (hlth_det): Reference metadata in Euro SDMX Metadata Structure (ESMS). Geraadpleegd op 16 juni 2026, van <https://ec.europa.eu/eurostat/cache/metadata/en/hlth_det_esms.htm> 4. Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. Europese Commissie. <https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20241107-1> 5. OpenAI. (2026). ChatGPT (GPT-5.5) [Large language model]. <https://chatgpt.com/>
-=======
 Use APA referencing throughout your document. 1. Zorginstituut
 Nederland. (z.d.). Obesitaszorg en zorg bij overgewicht. Geraadpleegd op
 16 juni 2026, van Zorginstituut Nederland 2. De Witte, E. (2025, 4
@@ -723,4 +654,3 @@ grew in 2023. Europese Commissie.
 <https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20241107-1>
 5. OpenAI. (2026). ChatGPT (GPT-5.5) [Large language model].
 <https://chatgpt.com/>
->>>>>>> Stashed changes
