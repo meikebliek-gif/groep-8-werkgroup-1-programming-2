@@ -531,7 +531,6 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
   )
 ```
 
-Here you provide a description of why the plot above is relevant to your specific social problem.
 
 # Part 4 - Discussion
 
@@ -541,7 +540,7 @@ Here you provide a description of why the plot above is relevant to your specifi
 
 ## 5.1 Github repository link
 
-https://github.com/meikebliek-gif/groep-8-werkgroup-1-programming-2 
+Provide the link to your PUBLIC repository here: ...
 
 ## 5.2 Reference list
 
