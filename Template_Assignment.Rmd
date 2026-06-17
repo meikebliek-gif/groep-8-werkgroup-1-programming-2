@@ -54,7 +54,6 @@ The second dataset provides information on the percentage of the population with
 ## 2.3 Describe the type of variables included
 The first dataset contains the variable weight. In this dataset, the weight of various countries is determined through research (Eurostat, n.d.). In this set, index numbers are used in which an index number higher than 25 counts as overweight. This data relates to health information measured elsewhere, showing that men in these European countries have a healthy weight on average. The second dataset provides the average income of the same European countries over the years. This set contains socio-economic information that zooms in on the prosperity of a country. This information is based on national statistics supplied to Eurostat by the countries. Survey researchers therefore have no influence on this (Eurostat, 2024).
 
-*For the sake of this example, I will continue with the assignment...*
 
 # Part 3 - Quantifying
 
