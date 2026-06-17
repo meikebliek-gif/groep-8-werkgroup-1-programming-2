@@ -25,7 +25,7 @@ require(yaml)
 
 title: "Hoe zwaar weegt welvaart"
 author: "'Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488'"
-Include your tutorial lecturer's name: Fitzgerald, J.F.
+Include your tutorial lecturer's name: Chantal Schouwenaar 
 
 #introduction
 In this document, we will examine income and the percentage of overweight people across Europe. We are curious to see if a correlation can be found between a country's income and the percentage of overweight people. We started by adding two datasets, then cleaned and merged them into a single combined set. Following this, we created four graphs showing both the correlation between the two variables and the distribution of income and the percentage of overweight people across Europe.
@@ -33,7 +33,6 @@ In this document, we will examine income and the percentage of overweight people
 
 # Part 1 - Identify a Social Problem
 
-Use APA referencing throughout your document. [Here's a link to some explanation.](https://www.mendeley.com/guides/apa-citation-guide/)
 
 ## 1.1 Describe the Social Problem
 Social question: To what extent does income influence the percentage of overweight people in Europe?
@@ -62,7 +61,7 @@ The first dataset contains the variable weight. In this dataset, the weight of v
 # Part 3 - Quantifying
 
 ## 3.1 Data cleaning
-In order to make our 4 graphs we first had to clean our data, our two data sets had a lot of columns with no data in it which had to be deleted, the columns were titled by numbers we changed this to appropriate titles for the columns. The data sets also had a lot of information about Europe in general we did not need this for our graphs so we also deleted these. We also filtered 2 countries with a lot of missing data. Lastly we combined our 2 data sets by region. Later when we were generating new variables we added NA to the places with missing data.
+In order to create our four graphs, we first had to clean our data. Both data sets contained many columns with no data, which we removed. The remaining columns were titled by numbers, so we renamed them with appropriate titles. The data sets also included a lot of general information about Europe as a whole, which was not relevant for our graphs and was therefore removed. Additionally, we excluded two countries with a large amount of missing data. Finally, we combined the two data sets by region. Later, when generating new variables, we assigned NA to the entries with missing data.
 
 
 ```{r include=FALSE}
@@ -174,7 +173,7 @@ combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 ```
 
 
-Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
+
 
 ## 3.2 Generate necessary variables
 
@@ -407,8 +406,8 @@ ggplot(combined) +
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
-## 3.5 Visualize sub-population variation
-
+# 3.5 Visualize sub-population variation
+To visualize sub-population differences between lower, middle and upper class we divided our data set in income in 3 groups by income. afterwords we 
 
 ```{r visualise_subpopulations, echo=FALSE, message=FALSE, warning=FALSE}
 #Sub-population variation visualized 
@@ -466,8 +465,7 @@ boxplot_long %>%
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
-
-Analyze the relationship between two variables.
+For the event analysis we analyzed the debt crisis from 2008 and 2009. It was said that the debt crisis influenced the southern European  countries the most, this is noticeable in the graphic, for the southern countries the income rise is lower than for the other regions. The eastern and western region of Europe had a very high rise of income, whilst the northern had a small rise, and the southern an even smaller rise of income. 
 
 ```{r analysis, echo=FALSE, message=FALSE, warning=FALSE}
 #Event associated visualized 
@@ -533,7 +531,6 @@ ggplot(inkomen_regio, aes(x = jaar, y = med_inkomen,
   )
 ```
 
-Here you provide a description of why the plot above is relevant to your specific social problem.
 
 # Part 4 - Discussion
 
