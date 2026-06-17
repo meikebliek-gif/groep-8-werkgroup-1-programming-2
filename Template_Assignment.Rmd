@@ -25,29 +25,45 @@ require(rmarkdown)
 require(yaml)
 ```
 
-Title: "Hoe zwaar weegt welvaart" author: "'Tobias Pierik: 2898032, Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763, Anne Mak: 2898488'"
+Title: "Hoe zwaar weegt welvaart" author: "'Tobias Pierik: 2898032,
+Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763,
+Anne Mak: 2898488'"
 
 Tutorial lecturer's name: Chantal Schouwenaar
 
-In this document, we will examine income and the percentage of overweight people across Europe. We are curious to see if a correlation can be found between a country's income and the percentage of overweight people. We started by adding two datasets, then cleaned and merged them into a single combined set. Following this, we created four graphs showing both the correlation between the two variables and the distribution of income and the percentage of overweight people across Europe.
+In this document, we will examine income and the percentage of
+overweight people across Europe. We are curious to see if a correlation
+can be found between a country's income and the percentage of overweight
+people. We started by adding two datasets, then cleaned and merged them
+into a single combined set. Following this, we created four graphs
+showing both the correlation between the two variables and the
+distribution of income and the percentage of overweight people across
+Europe.
 
 # Part 1 - Identify a Social Problem
 
 ## 1.1 Describe the Social Problem
 
-Social question: To what extent does income influence the percentage of overweight people in Europe?
+Social question: To what extent does income influence the percentage of
+overweight people in Europe?
 
 title: "Hoe zwaar weegt welvaart" author: "'Tobias Pierik: 2898032,
 Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763,
 Anne Mak: 2898488'" Tutorial lecturer's name: Chantal Schouwenaar
 
-#introduction 
-In this document, we will examine income and the percentage of overweight people across Europe. We are curious to see if a correlation can be found between a country's income and the percentage of overweight people. We started by adding two datasets, then cleaned and merged them into a single combined set. Following this, we created four graphs showing both the correlation between the two variables and the distribution of income and the percentage of overweight people
+#introduction In this document, we will examine income and the
+percentage of overweight people across Europe. We are curious to see if
+a correlation can be found between a country's income and the percentage
+of overweight people. We started by adding two datasets, then cleaned
+and merged them into a single combined set. Following this, we created
+four graphs showing both the correlation between the two variables and
+the distribution of income and the percentage of overweight people
 across Europe.
 
 # Part 1 - Identify a Social Problem
 
 ## 1.1 Describe the Social Problem
+
 Social question: To what extent does income influence the percentage of
 overweight people in Europe?
 
@@ -63,9 +79,14 @@ overweight (De Witte, 2025).
 # Part 2 - Data Sourcing
 
 ## 2.1 Load in the data
-Eurostat. (n.d.). Obesity rate by body mass index (BMI) (sdg_02_10) [Data set]. Geraadpleegd op 2 juni 2026, van <https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en>
 
-Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. European Commission. <https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/DDN-20241107-1>
+Eurostat. (n.d.). Obesity rate by body mass index (BMI) (sdg_02_10)
+[Data set]. Geraadpleegd op 2 juni 2026, van
+<https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en>
+
+Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU
+grew in 2023. European Commission.
+<https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/DDN-20241107-1>
 
 ## 2.2 Provide a short summary of the dataset(s)
 
@@ -219,6 +240,7 @@ combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 ```
 
 ## 3.2 Generate necessary variables
+
 Variable 1: For the first variable the average net yearly income per
 person for all the countries concluded in the dataset, was calculated.
 In the dataset we had the years 2002, 2006, 2010, 2014, 2018, 2022
@@ -330,7 +352,17 @@ ggplot(groei_samen, aes(x = jaar, y = groei, color = variabele)) +
   theme_minimal()
 ```
 
-The graphic of temporal variation contains the growth difference from the yearly net income average, and the yearly overweight percentage average. The graphic has years on the X-axis and the growth in percentage on the Y-axis. The blue line shows the income growth percentage and the orange line shows the overweight growth percentage. The graphic shows a huge growth between 2002 and 2006. After 2006 there is a huge drop til 2014 in the growth percentage. After 2014 there is a steady incline. The growth percentage never became lower than zero. When you look at the graphic of the overweight growth percentage you see that there is not much information available. Therefore there is only a small incline visible in the graphic. 
+The graphic of temporal variation contains the growth difference from
+the yearly net income average, and the yearly overweight percentage
+average. The graphic has years on the X-axis and the growth in
+percentage on the Y-axis. The blue line shows the income growth
+percentage and the orange line shows the overweight growth percentage.
+The graphic shows a huge growth between 2002 and 2006. After 2006 there
+is a huge drop til 2014 in the growth percentage. After 2014 there is a
+steady incline. The growth percentage never became lower than zero. When
+you look at the graphic of the overweight growth percentage you see that
+there is not much information available. Therefore there is only a small
+incline visible in the graphic.
 
 ## 3.4 Visualize spatial variation
 
@@ -417,20 +449,16 @@ library(ggplot2)
  # theme_void()
 
 
-filter(combined, combined$overgewicht2022 == ":")
+#filter(combined, combined$overgewicht2022 == ":")
 
 combined$overgewicht2022[combined$overgewicht2022 == ":"] <- NA
 
-
-library(paletteer)
 #paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
 
 library(ggplot2)
 library(paletteer)
 
 kleuren <- paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
-
-library(paletteer)
 
 kleuren <- rev(as.character(
   paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
@@ -472,7 +500,6 @@ percentage of overweight individuals in 2022. We used the "paletteer"
 package to make the countries go from a green to red color palette.
 Countries that do not have data, are labeled with NA and these are shown
 with a light grey color.
-
 
 # 3.5 Visualize sub-population variation
 
@@ -611,6 +638,7 @@ rise of income.
 # Part 4 - Discussion
 
 ## 4.1 Discuss your findings
+
 This report studied the relationship between income and the percentage
 of overweight people in European countries. Using data from Eurostat, we
 analyzed the data over time and across Europe. The observations of our
@@ -632,6 +660,7 @@ factor in acknowledging this public health issue.
 <https://github.com/meikebliek-gif/groep-8-werkgroup-1-programming-2>
 
 ## 5.2 Reference list
+
 Use APA referencing throughout your document. 1. Zorginstituut
 Nederland. (z.d.). Obesitaszorg en zorg bij overgewicht. Geraadpleegd op
 16 juni 2026, van Zorginstituut Nederland 2. De Witte, E. (2025, 4
