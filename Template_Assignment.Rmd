@@ -3,9 +3,9 @@ title: "Hoe zwaar weegt welvaart"
 author: "Tutorial 1 Group 8"
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
-  pdf_document: default
 editor_options: 
   markdown: 
     wrap: 72
@@ -417,20 +417,16 @@ library(ggplot2)
  # theme_void()
 
 
-filter(combined, combined$overgewicht2022 == ":")
+#filter(combined, combined$overgewicht2022 == ":")
 
 combined$overgewicht2022[combined$overgewicht2022 == ":"] <- NA
 
-
-library(paletteer)
 #paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
 
 library(ggplot2)
 library(paletteer)
 
 kleuren <- paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
-
-library(paletteer)
 
 kleuren <- rev(as.character(
   paletteer_c("ggthemes::Red-Green-Gold Diverging", 30)
