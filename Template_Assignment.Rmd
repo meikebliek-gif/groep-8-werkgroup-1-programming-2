@@ -532,7 +532,7 @@ For the event analysis we analyzed the debt crisis from 2008 and 2009. It was sa
 # Part 4 - Discussion
 
 ## 4.1 Discuss your findings
-This report studied the relationship between income and the percentage of overweight people in European countries. Using data from Eurostat, we analyzed the data over time and across Europe. The visualizations of our data showed us clear differences between European countries. This supports the idea that poorer economic conditions are associated with a greater risk of people being overweight.
+This report studied the relationship between income and the percentage of overweight people in European countries. Using data from Eurostat, we analyzed the data over time and across Europe. The observations of our data showed us clear differences between European countries. This confirms the widely held observation that poor economic conditions are associated with a greater risk of overweight. 
 A possible explanation might be that people with lower incomes often have less access to healthy food, sports facilities, and other resources that support a healthy lifestyle. 
 
 In short, the findings suggest that lower income is related with larger levels of overweight in Europe, making economic inequality an crucial factor in acknowledging this public health issue.
