@@ -60,7 +60,7 @@ The first dataset contains the variable weight. In this dataset, the weight of v
 # Part 3 - Quantifying
 
 ## 3.1 Data cleaning
-In order to make our 4 graphs we first had to clean our data, our two data sets had a lot of columns with no data in it which had to be deleted, the columns were titled by numbers we changed this to appropriate titles for the columns. The data sets also had a lot of information about Europe in general we did not need this for our graphs so we also deleted these. We also filtered 2 countries with a lot of missing data. Lastly we combined our 2 data sets by region. Later when we were generating new variables we added NA to the places with missing data.
+In order to create our four graphs, we first had to clean our data. Both data sets contained many columns with no data, which we removed. The remaining columns were titled by numbers, so we renamed them with appropriate titles. The data sets also included a lot of general information about Europe as a whole, which was not relevant for our graphs and was therefore removed. Additionally, we excluded two countries with a large amount of missing data. Finally, we combined the two data sets by region. Later, when generating new variables, we assigned NA to the entries with missing data.
 
 
 ```{r include=FALSE}
@@ -172,7 +172,7 @@ combined <- merge(inkomen_landen_europa, overgewichtLanden, by = "regio")
 ```
 
 
-Please use a separate 'R block' of code for each type of cleaning. So, e.g. one for missing values, a new one for removing unnecessary variables etc.
+
 
 ## 3.2 Generate necessary variables
 
@@ -405,8 +405,8 @@ ggplot(combined) +
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
-## 3.5 Visualize sub-population variation
-
+# 3.5 Visualize sub-population variation
+To visualize sub-population differences between lower, middle and upper class we divided our data set in income in 3 groups by income. afterwords we 
 
 ```{r visualise_subpopulations, echo=FALSE, message=FALSE, warning=FALSE}
 #Sub-population variation visualized 
