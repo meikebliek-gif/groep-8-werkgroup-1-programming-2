@@ -448,16 +448,16 @@ boxplot_long %>%
   mutate(groep = factor(groep, levels = c("Lower", "Middle", "Upper"))) %>%
   ggplot(aes(x = groep, y = overgewicht, fill = groep)) +
     geom_boxplot() +
-    facet_wrap(~jaar) +
+#    facet_wrap(~jaar) +
     scale_fill_viridis(discrete = TRUE, alpha = 0.6, option = "A") +
     theme_minimal() +
     theme(
       legend.position = "none",
       plot.title = element_text(size = 11)
     ) +
-    ggtitle("Overweight % per income group, per year") +
-    xlab("") +
-    ylab("Overweight %")          # <- dit zet "Overweight %" op de y-as
+    ggtitle("Overweight % per income group in 2022") +
+    xlab("Income groups") +
+    ylab("Population that is overweight %")          # <- dit zet "Overweight %" op de y-as
 ```
 
 Here you provide a description of why the plot above is relevant to your specific social problem.
