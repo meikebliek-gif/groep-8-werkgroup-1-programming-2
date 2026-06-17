@@ -463,8 +463,7 @@ boxplot_long %>%
 Here you provide a description of why the plot above is relevant to your specific social problem.
 
 ## 3.6 Event analysis
-
-Analyze the relationship between two variables.
+For the event analysis we analyzed the debt crisis from 2008 and 2009. It was said that the debt crisis influenced the southern European  countries the most, this is noticeable in the graphic, for the southern countries the income rise is lower than for the other regions. The eastern and western region of Europe had a very high rise of income, whilst the northern had a small rise, and the southern an even smaller rise of income. 
 
 ```{r analysis, echo=FALSE, message=FALSE, warning=FALSE}
 #Event associated visualized 
