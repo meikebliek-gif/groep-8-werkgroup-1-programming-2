@@ -31,25 +31,12 @@ Anne Mak: 2898488'"
 
 Tutorial lecturer's name: Chantal Schouwenaar
 
-In this document, we will examine income and the percentage of
-overweight people across Europe. We are curious to see if a correlation
-can be found between a country's income and the percentage of overweight
-people. We started by adding two datasets, then cleaned and merged them
-into a single combined set. Following this, we created four graphs
-showing both the correlation between the two variables and the
-distribution of income and the percentage of overweight people across
-Europe.
 
 # Part 1 - Identify a Social Problem
 
 ## 1.1 Describe the Social Problem
 
-Social question: To what extent does income influence the percentage of
-overweight people in Europe?
 
-title: "Hoe zwaar weegt welvaart" author: "'Tobias Pierik: 2898032,
-Meike Bliek: 2892575, Vycho de Graaf: 2892702, Nynke Latham: 2862763,
-Anne Mak: 2898488'" Tutorial lecturer's name: Chantal Schouwenaar
 
 In this document, we will examine income and the percentage of
 overweight people across Europe. We are curious to see if a correlation
