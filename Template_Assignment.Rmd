@@ -548,3 +548,4 @@ Use APA referencing throughout your document.
 2. De Witte, E. (2025, 4 september). Geld maakt niet gelukkig, maar wel gezonder volgens nieuw onderzoek. Manly. https://manly.nl/verband-inkomen-gezondheid-onderzoek
 3. Eurostat. (z.d.). Health determinants (hlth_det): Reference metadata in Euro SDMX Metadata Structure (ESMS). Geraadpleegd op 16 juni 2026, van https://ec.europa.eu/eurostat/cache/metadata/en/hlth_det_esms.htm
 4. Eurostat. (2024, 7 november). Annual full-time adjusted salary in EU grew in 2023. Europese Commissie. https://ec.europa.eu/eurostat/en/web/products-eurostat-news/w/ddn-20241107-1
+5. OpenAI. (2026). ChatGPT (GPT-5.5) [Large language model]. https://chatgpt.com/
